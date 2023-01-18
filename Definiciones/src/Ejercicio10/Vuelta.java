@@ -57,6 +57,16 @@ public class Vuelta {
 			salida5= salida.charAt(i)+salida5; 
 		}
 		System.out.println(salida5);
+		
+System.out.println("******************* Fase 6 ***********************");
+		salida += (char) 0; 
+		int pos =0; 
+		String salida6 = "";
+
+		while(salida.charAt(pos) != (char) 0) {
+			salida6 = salida.charAt(pos++)+salida6; 
+		}
+		System.out.println(salida6);
 	}
 
 	/**
