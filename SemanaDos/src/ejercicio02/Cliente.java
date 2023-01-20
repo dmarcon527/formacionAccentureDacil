@@ -40,21 +40,24 @@ public class Cliente extends Persona {
 	public void verFechaAlta() {
 		System.out.println("Fecha de alta " + getFechaAlta());
 	}
+
 	@Override
 	public void crear() {
 		super.crear();
 	}
+
 	@Override
 	public void borrar() {
 		super.borrar();
 	}
+
 	@Override
 	public void enviarMensaje() {
 		super.enviarMensaje();
 	}
 
 	@Override
-	String mensajeAbstract() {
+	public String mensajeAbstract() {
 		System.out.println(super.toString());
 		return "Cliente " + getFechaAlta() + getNumeroCliente();
 	}

@@ -34,18 +34,19 @@ public class Usuario extends Persona {
 		super.crear();
 		System.out.println("Usuario Creado");
 	}
-	
+
 	@Override
 	public void borrar() {
 		super.borrar();
 	}
+
 	@Override
 	public void enviarMensaje() {
 		super.enviarMensaje();
 	}
 
 	@Override
-	String mensajeAbstract() {
+	public String mensajeAbstract() {
 		System.out.println(super.toString());
 		return "Usuario " + getCodUsu();
 	}

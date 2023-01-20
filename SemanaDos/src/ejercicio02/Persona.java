@@ -6,7 +6,7 @@ package ejercicio02;
  *
  */
 
-public abstract class Persona {
+public abstract class Persona implements Cosas {
 
 	private String nombre;
 	private String direccion;
@@ -21,7 +21,10 @@ public abstract class Persona {
 		setCorreoElectronico("djefd@gmail.com");
 	}
 
-	abstract String mensajeAbstract();
+	/**
+	 * Lo declaro public para que no choque con la interfaz
+	 */
+	public abstract String mensajeAbstract();
 
 	public String getNombre() {
 		return nombre;

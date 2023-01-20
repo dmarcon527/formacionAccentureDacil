@@ -35,7 +35,7 @@ public class Intercambio<T> {
 	 */
 	public void intercambiarCadenas() {
 		T cadMod = getCadena1();
-		setCadena1(getCadena2()); 
+		setCadena1(getCadena2());
 		setCadena2(cadMod);
 		System.out.println("Texto 1 = " + cadena1 + " Texto 2 = " + cadena2);
 	}

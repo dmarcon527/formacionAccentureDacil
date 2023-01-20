@@ -7,7 +7,8 @@ package ejercicio02;
  */
 public class MainPersona {
 	/**
-	 * Creamos una instancia de Cliente y Usuario
+	 * Creamos una instancia de Cliente y Usuario para utilizar los distintos
+	 * métodos y comprobar la herencia
 	 * 
 	 * @param args
 	 */

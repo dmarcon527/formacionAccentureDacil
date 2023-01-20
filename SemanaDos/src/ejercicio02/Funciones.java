@@ -26,4 +26,25 @@ public class Funciones {
 
 	}
 
+	/**
+	 * Este método lo usamos para la clase Administrador puesto que no se le pasa
+	 * Persona
+	 * 
+	 * @param per
+	 */
+	public static void comprobar(Object per) {
+		if (per instanceof Persona) {
+
+			if (per instanceof Usuario) {
+				Usuario u = (Usuario) per;
+				u.mensajeAbstract();
+			}
+
+			if (per instanceof Cliente) {
+				Cliente c = (Cliente) per;
+				c.mensajeAbstract();
+			}
+		}
+	}
+
 }
