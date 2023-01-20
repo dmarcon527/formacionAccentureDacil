@@ -6,6 +6,11 @@ package ejercicio02;
  *
  */
 public class Funciones {
+
+	Funciones() {
+
+	}
+
 	/**
 	 * comprobamos el objeto que estamos pasando por parámetros para saber si es una
 	 * instancia de Usuario o Cliente

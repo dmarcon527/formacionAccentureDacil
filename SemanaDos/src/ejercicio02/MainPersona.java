@@ -23,14 +23,20 @@ public class MainPersona {
 		cl.verFechaAlta();
 		System.out.println(cl.mensajeAbstract());
 
-		System.out.println("----------------");
-
-		System.out.println("Creamos desde usuario 1");
+		System.out.println("----------------\nCreamos desde usuario 1");
 		usu.borrar();
 		usu.enviarMensaje();
 		usu.autorizar();
 		usu.crear();
 		System.out.println(usu.mensajeAbstract());
+
+		System.out.println("\nCliente Exportación");
+		ClienteExportacion ce = new ClienteExportacion("Luis", "Rosa de los vientos", "luis@gmail.com");
+		System.out.println(ce.toString());
+
+		System.out.println("-------------\nCliente Nacional");
+		ClienteNacional cn = new ClienteNacional();
+		System.out.println(cn.toString());
 
 	}
 

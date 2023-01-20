@@ -21,6 +21,15 @@ public class Cliente extends Persona {
 		setNumeroCliente(147);
 	}
 
+	Cliente(String nom, String dir, String email) {
+		super();
+		super.setNombre(nom);
+		super.setDireccion(dir);
+		setCorreoElectronico(email);
+		setFechaAlta();
+		setNumeroCliente(147);
+	}
+
 	public int getNumeroCliente() {
 		return numeroCliente;
 	}
