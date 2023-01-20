@@ -21,7 +21,6 @@ public class MainPersona {
 		cl.enviarMensaje();
 		cl.verFechaAlta();
 		System.out.println(cl.mensajeAbstract());
-		System.out.println(cl.toString());
 
 		System.out.println("----------------");
 
@@ -31,7 +30,6 @@ public class MainPersona {
 		usu.autorizar();
 		usu.crear();
 		System.out.println(usu.mensajeAbstract());
-		System.out.println(usu.toString());
 
 	}
 

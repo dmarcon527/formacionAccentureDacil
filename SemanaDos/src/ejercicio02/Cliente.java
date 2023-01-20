@@ -43,13 +43,8 @@ public class Cliente extends Persona {
 
 	@Override
 	String mensajeAbstract() {
-		return "Cliente " + getFechaAlta() + getNumeroCliente();
-	}
-
-	@Override
-	public String toString() {
 		System.out.println(super.toString());
-		return "Cliente [numeroCliente=" + numeroCliente + ", fechaAlta=" + fechaAlta + "]";
+		return "Cliente " + getFechaAlta() + getNumeroCliente();
 	}
 
 }

@@ -37,13 +37,8 @@ public class Usuario extends Persona {
 
 	@Override
 	String mensajeAbstract() {
-		return "Usuario " + getCodUsu();
-	}
-
-	@Override
-	public String toString() {
 		System.out.println(super.toString());
-		return "Usuario [codUsu=" + codUsu + "]";
+		return "Usuario " + getCodUsu();
 	}
 
 }
