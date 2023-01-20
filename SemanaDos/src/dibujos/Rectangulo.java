@@ -21,6 +21,7 @@ public class Rectangulo extends Formas {
 
 	@Override
 	String dibujar() {
+
 		return "Dibujando un " + super.getNombreForma();
 	}
 
@@ -28,6 +29,22 @@ public class Rectangulo extends Formas {
 	double calcularArea() {
 		double calculo = super.getX() * super.getY();
 		super.setArea(calculo);
+		dibujarForma(calculo);
 		return calculo;
+	}
+
+	/**
+	 * dibuja un rectangulo
+	 * 
+	 * @param total
+	 */
+	private void dibujarForma(double total) {
+		for (int i = 1; i <= total; i++) {
+			for (int a = 1; a <= total; a++) {
+				System.out.print("* ");
+
+			}
+			System.out.println("");
+		}
 	}
 }
