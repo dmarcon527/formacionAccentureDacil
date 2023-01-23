@@ -1,20 +1,19 @@
 package agroalimentaria;
 
 public class Aire extends Congelados {
+
 	private double nitrogeno;
 	private double oxigeno;
 	private double dioCarb;
 	private double vaporAgua;
 
-	/**
-	 * Inicializo los datos
-	 */
-	Aire() {
-		super("Aire");
-		setNitrogeno(0.22);
-		setOxigeno(0.1);
-		setDioCarb(0.02);
-		setVaporAgua(1.0);
+	public Aire(String tipoProducto, String fechaCad, int tempCong, String tipoCongelacion,
+			double nitrogeno, double oxigeno, double dioCarb, double vaporAgua) {
+		super(tipoProducto, fechaCad, tempCong, tipoCongelacion);
+		setNitrogeno(nitrogeno);
+		setOxigeno(oxigeno);
+		setDioCarb(dioCarb);
+		setVaporAgua(vaporAgua);
 	}
 
 	public double getNitrogeno() {
@@ -51,8 +50,7 @@ public class Aire extends Congelados {
 
 	@Override
 	public String toString() {
-		String msjPadre = super.toString();
-		return msjPadre + "\nAire [nitrogeno=" + nitrogeno + ", oxigeno=" + oxigeno + ", dioCarb=" + dioCarb
+		return super.toString() + "\nAire [nitrogeno=" + nitrogeno + ", oxigeno=" + oxigeno + ", dioCarb=" + dioCarb
 				+ ", vaporAgua=" + vaporAgua + "]";
 	}
 

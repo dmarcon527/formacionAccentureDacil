@@ -10,22 +10,21 @@ import java.time.LocalDate;
 public class Producto {
 
 	private String tipoProducto;
-	private LocalDate FechaCad;
+	private String FechaCad;
 	private int numLote;
-
-	Producto() {
-
-	}
+	private static int lote = 1000;
 
 	/**
-	 * Constructor ya inicializado
+	 * Constructor con parámetros
 	 * 
-	 * @param nomProd
+	 * @param tipoProducto
+	 * @param fechaCad
+	 * @param numLote
 	 */
-	Producto(String nomProd) {
-		setTipoProducto(nomProd);
-		setFechaCad(LocalDate.ofYearDay(2025, 3));
-		setNumLote((int) (Math.random() * 100000));
+	public Producto(String tipoProducto, String fechaCad) {
+		setTipoProducto(tipoProducto);
+		setFechaCad(fechaCad);
+		setNumLote(lote++);
 	}
 
 	public String getTipoProducto() {
@@ -36,11 +35,11 @@ public class Producto {
 		this.tipoProducto = tipoProducto;
 	}
 
-	public LocalDate getFechaCad() {
+	public String getFechaCad() {
 		return FechaCad;
 	}
 
-	public void setFechaCad(LocalDate fechaCad) {
+	public void setFechaCad(String fechaCad) {
 		this.FechaCad = fechaCad;
 	}
 

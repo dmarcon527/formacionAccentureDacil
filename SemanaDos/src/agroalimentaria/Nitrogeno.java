@@ -9,12 +9,10 @@ public class Nitrogeno extends Congelados {
 
 	private int tiempoSeg;
 
-	/**
-	 * Inicializo los datos
-	 */
-	Nitrogeno() {
-		super("Nitrogeno");
-		setTiempoSeg(1);
+	public Nitrogeno(String tipoProducto, String fechaCad, int tempCong, String tipoCongelacion,
+			int tiempoSeg) {
+		super(tipoProducto, fechaCad, tempCong, tipoCongelacion);
+		setTiempoSeg(tiempoSeg);
 	}
 
 	public int getTiempoSeg() {
@@ -27,8 +25,7 @@ public class Nitrogeno extends Congelados {
 
 	@Override
 	public String toString() {
-		String msjPadre = super.toString();
-		return msjPadre + "\nNitrogeno [tiempoSeg=" + tiempoSeg + " segundo]";
+		return super.toString() + "\nNitrogeno [tiempoSeg=" + tiempoSeg + " segundo]";
 	}
 
 }

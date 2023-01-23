@@ -10,19 +10,10 @@ public class Congelados extends Producto {
 	private int tempCong;
 	private String tipoCongelacion;
 
-	Congelados() {
-		super("Congelados");
-	}
-
-	/**
-	 * Inicializo los datos
-	 * 
-	 * @param tipoCong
-	 */
-	Congelados(String tipoCong) {
-		super("Congelados");
-		setTempCong(-18);
-		setTipoCongelacion(tipoCong);
+	public Congelados(String tipoProducto, String fechaCad, int tempCong, String tipoCongelacion) {
+		super(tipoProducto, fechaCad);
+		setTempCong(tempCong);
+		setTipoCongelacion(tipoCongelacion);
 	}
 
 	public int getTempCong() {
@@ -43,8 +34,7 @@ public class Congelados extends Producto {
 
 	@Override
 	public String toString() {
-		String msjPadre = super.toString();
-		return msjPadre + "\nCongelados [tempCong=" + tempCong + ", tipoCongelacion=" + tipoCongelacion + "]";
+		return super.toString() + "\nCongelados [tempCong=" + tempCong + ", tipoCongelacion=" + tipoCongelacion + "]";
 	}
 
 }

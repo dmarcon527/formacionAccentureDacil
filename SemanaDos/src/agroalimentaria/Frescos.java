@@ -9,31 +9,21 @@ import java.time.LocalDate;
  */
 public class Frescos extends Producto {
 
-	private LocalDate FechEnv;
+	private String FechEnv;
 	private String pais;
 
-	Frescos() {
-		super("Frescos");
-	}
-
-	/**
-	 * Constructor ya inicializado
-	 * 
-	 * @param pais el parámetro es un integer porque he creado un método privado que
-	 *             al introducir un número le asigna el pais
-	 */
-	Frescos(int pais) {
-		super("Frescos");
-		setFechEnv();
+	public Frescos(String tipoProducto, String fechaCad, String fechEnv, int pais) {
+		super(tipoProducto, fechaCad);
+		setFechEnv(fechEnv);
 		seleccionarPais(pais);
 	}
 
-	public LocalDate getFechEnv() {
+	public String getFechEnv() {
 		return FechEnv;
 	}
 
-	private void setFechEnv() {
-		FechEnv = LocalDate.now();
+	private void setFechEnv(String FechEnv) {
+		this.FechEnv = FechEnv;
 	}
 
 	public String getPais() {
@@ -68,8 +58,7 @@ public class Frescos extends Producto {
 
 	@Override
 	public String toString() {
-		String msjpadre = super.toString();
-		return msjpadre + "\nFrescos [FechEnv=" + FechEnv + ", pais=" + pais + "]";
+		return super.toString() + "\nFrescos [FechEnv=" + FechEnv + ", pais=" + pais + "]";
 	}
 
 }

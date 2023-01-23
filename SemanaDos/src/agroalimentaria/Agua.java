@@ -9,12 +9,10 @@ public class Agua extends Congelados {
 
 	private double cantSal;
 
-	/**
-	 * Inicializo los datos
-	 */
-	Agua() {
-		super("Agua");
-		setCantSal(2.14);
+	public Agua(String tipoProducto, String fechaCad, int tempCong, String tipoCongelacion,
+			double cantSal) {
+		super(tipoProducto, fechaCad, tempCong, tipoCongelacion);
+		setCantSal(cantSal);
 	}
 
 	public double getCantSal() {
@@ -27,8 +25,7 @@ public class Agua extends Congelados {
 
 	@Override
 	public String toString() {
-		String msjPadre = super.toString();
-		return msjPadre + "Agua [cantSal=" + cantSal + "]";
+		return super.toString() + "\nAgua [cantSal=" + cantSal + "]";
 	}
 
 }
