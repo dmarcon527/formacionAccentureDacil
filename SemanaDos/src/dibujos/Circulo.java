@@ -7,30 +7,26 @@ package dibujos;
  */
 public class Circulo extends Formas {
 
-	private static final double PI = 3.14;
-
-	/**
-	 * Inializo el nombre de la figura y le pido el rádio
-	 * 
-	 * @param x
-	 */
-	Circulo(double x) {
-		super("Circulo");
-		super.setX(x);
+	public Circulo(double x) {
+		super(x);
 	}
+
 
 	@Override
 	String dibujar() {
-		return "Dibujando un " + super.getNombreForma();
-
+		return "Dibujando circulo";
 	}
 
 	@Override
 	double calcularArea() {
-		double calculo = super.getX() * super.getX();
-		double res = calculo * PI;
-		super.setArea(res);
-		return res;
+		double calculo = getX() * getX();
+		setArea(calculo * Math.PI);
+		return getArea();
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString()+"\nArea del Circulo "+calcularArea()+"\n"+ dibujar();
 	}
 
 }

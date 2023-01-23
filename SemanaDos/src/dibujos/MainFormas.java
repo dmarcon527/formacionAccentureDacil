@@ -13,17 +13,14 @@ public class MainFormas {
 	 */
 	public static void main(String[] args) {
 
-		Triangulo t = new Triangulo(2, 2);
+		Triangulo triangulo = new Triangulo(15, 12);
+		System.out.println(triangulo.toString() + "\n------------");
 
-		System.out.println(t.dibujar() + "\nCon Area " + t.calcularArea() + "\n------------");
+		Circulo circulo = new Circulo(15);
+		System.out.println(circulo.toString() + "\n------------");
 
-		Circulo c = new Circulo(15);
-
-		System.out.println(c.dibujar() + "\nCon Area " + c.calcularArea() + "\n------------");
-
-		Rectangulo r = new Rectangulo(2, 2);
-
-		System.out.println(r.dibujar() + "\nCon Area " + r.calcularArea() + "\n------------");
+		Rectangulo rectangulo = new Rectangulo(2, 2);
+		System.out.println(rectangulo.toString() + "\n------------");
 
 	}
 }

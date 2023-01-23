@@ -7,31 +7,30 @@ package dibujos;
  */
 public abstract class Formas {
 
-	private String nombreForma;
-	private double area;
 	private double x;
 	private double y;
+	private double area;
 
-	/**
-	 * pedimos el nombre de la forma por parámetros
-	 * 
-	 * @param nombre
-	 */
-	Formas(String nombre) {
-		setNombreForma(nombre);
+	public Formas(double x, double y) {
+		setX(x);
+		setY(y);
+	}
+
+	public Formas(double x) {
+		setX(x);
+	}
+
+	public double getArea() {
+		return area;
+	}
+
+	public void setArea(double area) {
+		this.area = area;
 	}
 
 	abstract String dibujar();
 
 	abstract double calcularArea();
-
-	public String getNombreForma() {
-		return nombreForma;
-	}
-
-	public void setNombreForma(String nombreForma) {
-		this.nombreForma = nombreForma;
-	}
 
 	public double getX() {
 		return x;
@@ -49,12 +48,11 @@ public abstract class Formas {
 		this.y = y;
 	}
 
-	public double getArea() {
-		return area;
+	@Override
+	public String toString() {
+		return "Formas [x=" + x + ", y=" + y + "]";
 	}
 
-	public void setArea(double area) {
-		this.area = area;
-	}
+	
 
 }

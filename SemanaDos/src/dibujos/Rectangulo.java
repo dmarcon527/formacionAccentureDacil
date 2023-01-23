@@ -7,30 +7,23 @@ package dibujos;
  */
 public class Rectangulo extends Formas {
 
-	private static final double PI = 3.14;
+	public Rectangulo(double x, double y) {
+		super(x, y);
 
-	/**
-	 * 
-	 * Inicializamos el nombre de la figura y pedimos la base y la altura
-	 */
-	Rectangulo(double x, double y) {
-		super("Rectangulo");
-		super.setX(x);
-		super.setY(y);
 	}
 
 	@Override
 	String dibujar() {
 
-		return "Dibujando un " + super.getNombreForma();
+		return "Dibujando rectangulo";
 	}
 
 	@Override
 	double calcularArea() {
-		double calculo = super.getX() * super.getY();
-		super.setArea(calculo);
+		double calculo = getX() * getY();
+		setArea(calculo);
 		dibujarForma(calculo);
-		return calculo;
+		return getArea();
 	}
 
 	/**
@@ -47,4 +40,11 @@ public class Rectangulo extends Formas {
 			System.out.println("");
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString()+"\nArea del Rectangulo "+calcularArea()+"\n"+ dibujar();
+	}
+
+
 }

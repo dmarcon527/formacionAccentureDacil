@@ -7,33 +7,25 @@ package dibujos;
  */
 public class Triangulo extends Formas {
 
-	private static final double NUM = 2;
-
-	/**
-	 * 
-	 * Inicializamos el nombre de la figura y pedimos la base y la altura
-	 */
-	Triangulo(int x, int y) {
-		super("Triangulo");
-		super.setX(x);
-		super.setY(y);
-	}
-
-	public double getNUM() {
-		return NUM;
+	public Triangulo(double x, double y) {
+		super(x, y);
 	}
 
 	@Override
 	String dibujar() {
-
-		return "Dibujando un " + super.getNombreForma();
+		return "Dibujando triangulo ";
 	}
 
 	@Override
 	double calcularArea() {
-		double calculo = NUM * super.getX() * super.getY();
-		super.setArea(calculo);
-		return calculo;
+		double calculo = getX() * getY();
+		setArea(calculo / 2);
+		return getArea();
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nArea del Triangulo " + calcularArea() + "\n" + dibujar();
 	}
 
 }
