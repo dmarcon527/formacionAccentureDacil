@@ -1,0 +1,6 @@
+No tengo muy claro como se pueden cargar datos dentro de las clases
+En las clases de Objeto (Rectangulo)
+¿Para que se guarda el nombre de la figura?
+setX, setY, y el resto son de la clase, no del padre, ya que no hay otros, no se han de invocar con super().
+Si programo un final static NUM, todos los lotes seran 2, ya que no puedo modificarlo
+¿Que tiene que ver NUM con el calculo del area?
