@@ -28,18 +28,23 @@ public class mainBanco {
 			System.out.println(cuenta.toString());
 			System.out.println("\nEn total hay en la cuenta " + cuenta.getSaldo());
 			
+			System.out.println("--------------");
+			
 			Cuenta cuenta1 = new Cuenta("ES21 147 147 147 147", "Rosa ruiz");
 			Credito credito =new Credito(fechacad, "sdd", "Maria perez"); 
-			System.out.println("--------------");
+			
 			credito.setmCuentaAsociada(cuenta1);
-			credito.setmCredito(5000);
-			//credito.liquidar(01, 2022);
-			//credito.retirar(1000);
+			 credito.setmCredito(5000.00);
+			System.out.println("Credito disponible "+credito.crditoDisponible());
+			credito.retirar(1000.00);
+			credito.liquidar(01, 2022);
+			credito.pagoEnEstablecimiento("Clases de Pole", 40);
 			credito.ingresar(500);
-			System.out.println(cuenta1.toString());
+			
+			System.out.println(credito.toString());
 			
 		} catch (Exception e) {
-
+			System.out.println(e);
 		}
 	}
 

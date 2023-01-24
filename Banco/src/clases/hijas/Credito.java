@@ -31,12 +31,13 @@ public class Credito extends Tarjeta {
 
 	@Override
 	public double getSaldo() {
-		return getmCuentaAsociada().getSaldo();
+		return crditoDisponible();
 	}
 
 	@Override
 	public void ingresar(double x) {
-		getmCuentaAsociada().ingresar("Ingreso en cuenta asociada (cajero automático)", x);
+		Moviento mov = new Moviento("Ingreso en cuenta asociada (cajero automático)", x);
+		addMovimiento(mov);
 	}
 
 	public void liquidar(int mes, int anio) {
@@ -49,6 +50,7 @@ public class Credito extends Tarjeta {
 				if (movimiento.getmFecha().getMonthValue() == mes && movimiento.getmFecha().getYear() == anio) {
 					total += movimiento.getmImporte();
 					iterator.remove();
+					addMovimiento(movimiento);
 				}
 			}
 			/**
@@ -66,24 +68,33 @@ public class Credito extends Tarjeta {
 
 	@Override
 	public void pagoEnEstablecimiento(String datos, double x) throws Exception {
-		getmCuentaAsociada().retirar(datos, x);
+		if (x > getSaldo()) {
+			throw new Exception("No se puede retirar una cantidad negativa"); 
+		} else {
+			double negativo = x * -1;
+			Moviento mov = new Moviento(datos, negativo);
+			addMovimiento(mov);
+		}
 	}
 
 	@Override
-	public void retirar(double x) throws Exception {
-		double porcentaje = 0.5 * x;
-		if (porcentaje > 3) {
-			getmCuentaAsociada().retirar("Retirada en cuenta asociada (cajero automático)", porcentaje);
+	public void retirar(double x) throws Exception {	
+		if (x > getSaldo()) {
+			throw new Exception("No se puede retirar una cantidad negativa"); 
 		} else {
-			double aniade = x + 3;
-			getmCuentaAsociada().retirar("Retirada en cuenta asociada (cajero automático)", aniade);
+			double negativo = x * -1;
+			Moviento mov = new Moviento("Retirar dinero", negativo);
+			addMovimiento(mov);
 		}
 
+	}
+	public void addMovimiento(Moviento mMovimientos) {
+		this.mMovimientos.add(mMovimientos);
 	}
 
 	@Override
 	public String toString() {
-		return "Credito [mCredito=" + mCredito + ", mMovimientos=" + mMovimientos + "]";
+		return super.toString()+"\nCredito [mCredito=" + mCredito + ", mMovimientos=" + mMovimientos + "]";
 	}
 	
 	

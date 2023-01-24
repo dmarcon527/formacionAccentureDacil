@@ -30,4 +30,11 @@ public class Debito extends Tarjeta {
 		getmCuentaAsociada().retirar(x);
 	}
 
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	
+	
+
 }
