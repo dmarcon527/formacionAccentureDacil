@@ -8,9 +8,9 @@ import herencia.automovil.Automovil;
 public class Asignatura {
 	private HashSet <String> asignaturas = new HashSet <>();
 
-	//public HashSet<String> getAsignaturas() {
-	//	return asignaturas;
-	//}
+	public HashSet<String> getAsignaturas() {
+		return asignaturas;
+	}
 
 	public void setAsignaturas(String asignatura) {
 		this.asignaturas.add(asignatura);
@@ -21,11 +21,7 @@ public class Asignatura {
 		return "Asignatura [asignaturas=" + asignaturas + "]";
 	}
 	
-	/**public void mostrarAsig(Asignatura asignaturas) {
-		for (Asignatura asig : asignaturas) {
-			System.out.println(asig.toString());
-		}
-	}*/
+	
 	
 
 }
