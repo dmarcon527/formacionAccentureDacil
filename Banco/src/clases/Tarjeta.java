@@ -2,6 +2,9 @@ package clases;
 
 import java.time.LocalDate;
 
+import excepciones.LongitudTexto;
+import utils.Filtros;
+
 public abstract class Tarjeta {
 
 	protected Cuenta mCuentaAsociada;
@@ -10,14 +13,19 @@ public abstract class Tarjeta {
 	protected String mTitular;
 
 	public Tarjeta(LocalDate mFechaDeCaducidad, String mNumero, String mTitular) {
-		this.mFechaDeCaducidad = mFechaDeCaducidad;
-		this.mNumero = mNumero;
-		this.mTitular = mTitular;
+		boolean textoCorrecto = Filtros.longitudTexto(mTitular);
+		if (textoCorrecto = true) {
+			this.mFechaDeCaducidad = mFechaDeCaducidad;
+			this.mNumero = mNumero;
+			this.mTitular = mTitular;
+		} else {
+			throw new LongitudTexto();
+		}
 	}
 
 	public abstract double getSaldo();
 
-	public abstract void ingresar(double x);
+	public abstract void ingresar(double x) throws Exception;
 
 	public abstract void pagoEnEstablecimiento(String datos, double x) throws Exception;
 

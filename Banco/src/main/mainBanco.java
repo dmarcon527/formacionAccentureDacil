@@ -6,17 +6,23 @@ import clases.Cuenta;
 import clases.hijas.Credito;
 import clases.hijas.Debito;
 
+/**
+ * 
+ * @author Dácil Marco Contreras
+ *
+ */
 public class mainBanco {
 
 	public static void main(String[] args) {
 		try {
-			LocalDate fechacad = LocalDate.of(2025, 04, 12); 
-			Cuenta cuenta = new Cuenta("ES21 1234 1234 1234 1234", "Manuel Fernandez");
+			LocalDate fechacad = LocalDate.of(2025, 04, 12);
+			Cuenta cuenta = new Cuenta("ES21 1234 1234 1234 1234", "Manuel Fernandez Perez");
 
-			Debito debito = new Debito(LocalDate.of(2025, 02, 12), "ES21 1234 1234 1234 1235", "Manuel Fernandez");
+			Debito debito = new Debito(LocalDate.of(2025, 02, 12), "ES21 1234 1234 1234 1235",
+					"Manuel Fernandez Perez");
 			debito.setmCuentaAsociada(cuenta);
 			debito.ingresar(1000.00);
-			
+
 			System.out.println("En total hay en la cuenta (DEBITO)" + debito.getSaldo());
 			System.out.println("En total hay en la cuenta " + cuenta.getSaldo());
 
@@ -27,23 +33,23 @@ public class mainBanco {
 
 			System.out.println(cuenta.toString());
 			System.out.println("\nEn total hay en la cuenta " + cuenta.getSaldo());
-			
+
 			System.out.println("--------------");
-			
-			Cuenta cuenta1 = new Cuenta("ES21 147 147 147 147", "Rosa ruiz");
-			Credito credito =new Credito(fechacad, "sdd", "Maria perez"); 
-			
+
+			Cuenta cuenta1 = new Cuenta("ES21 147 147 147 147", "Rosa ruiz Lopez");
+			Credito credito = new Credito(fechacad, "sdd", "Maria perez Sousa");
+
 			credito.setmCuentaAsociada(cuenta1);
-			 credito.setmCredito(5000.00);
-			System.out.println("Credito disponible "+credito.crditoDisponible());
+			credito.setmCredito(5000.00);
+			System.out.println("Credito disponible " + credito.crditoDisponible());
 			credito.retirar(1000.00);
 			credito.liquidar(01, 2023);
-			System.out.println("LIQUIDAR= "+credito.toString());
+			System.out.println("LIQUIDAR= " + credito.toString());
 			credito.pagoEnEstablecimiento("Clases de Pole", 40);
 			credito.ingresar(500);
-			
+
 			System.out.println(credito.toString());
-			
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}

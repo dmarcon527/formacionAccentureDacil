@@ -16,7 +16,7 @@ public class Debito extends Tarjeta {
 	}
 
 	@Override
-	public void ingresar(double x) {
+	public void ingresar(double x) throws Exception {
 		getmCuentaAsociada().ingresar(x);
 	}
 

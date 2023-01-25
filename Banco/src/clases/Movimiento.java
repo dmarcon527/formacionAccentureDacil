@@ -4,14 +4,14 @@ import java.time.LocalDate;
 
 /**
  * 
- * @author Dácil Marco Contreras 
+ * @author Dácil Marco Contreras
  */
 public class Movimiento {
 
 	private String mConcepto;
 	private LocalDate mFecha;
 	private double mImporte;
-	
+
 	public Movimiento() {
 		this.mFecha = LocalDate.now();
 	}

@@ -1,11 +1,11 @@
 package clases;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
-import javax.swing.text.html.parser.Element;
-
-import clases.hijas.Credito;
+import excepciones.LongitudTexto;
+import utils.Filtros;
 
 public class Cuenta {
 
@@ -13,9 +13,15 @@ public class Cuenta {
 	private String mNumero;
 	private String mTitular;
 
-	public Cuenta(String mNumero, String mTitular) {
-		this.mNumero = mNumero;
-		this.mTitular = mTitular;
+	public Cuenta(String mNumero, String mTitular) throws LongitudTexto {
+		boolean textoCorrecto = Filtros.longitudTexto(mTitular);
+		if (textoCorrecto == true) {
+			this.mNumero = mNumero;
+			this.mTitular = mTitular;
+		} else {
+			throw new LongitudTexto();
+		}
+
 	}
 
 	public void addMovimiento(Movimiento mMovimientos) {
@@ -39,21 +45,30 @@ public class Cuenta {
 			}
 
 		}
-		/**for (Moviento m : mMovimientos) {
-			saldo += m.getmImporte();  
-		}*/
+		/**
+		 * for (Moviento m : mMovimientos) { saldo += m.getmImporte(); }
+		 */
 
 		return saldo;
 	}
 
-	public void ingresar(double x) {
-		Movimiento mov = new Movimiento("Ingreso/Retirada en cajero automático", x);
+	public void ingresar(double x) throws Exception{
+		if(x>0) {
+			Movimiento mov = new Movimiento("Ingreso/Retirada en cajero automático", x);
 		addMovimiento(mov);
+		}else {
+			throw new Exception("No se puede ingresar una cantidad negativa");
+		}
+		
 	}
 
-	public void ingresar(String concepto, double x) {
-		Movimiento mov = new Movimiento(concepto, x);
-		addMovimiento(mov);
+	public void ingresar(String concepto, double x) throws Exception{
+		if(x>0) {
+			Movimiento mov = new Movimiento(concepto, x);
+			addMovimiento(mov);
+		}else {
+			throw new Exception("No se puede ingresar una cantidad negativa");
+		}
 	}
 
 	/**
@@ -62,9 +77,10 @@ public class Cuenta {
 	 * 
 	 * @param x
 	 */
-	public void retirar(double x) throws Exception{
-		if (x > getSaldo()) {
-			throw new Exception("No se puede retirar una cantidad negativa"); 
+	public void retirar(double x) throws Exception {
+		double total = getSaldo(); 
+		if (x >total ) {
+			throw new Exception("No se puede retirar una cantidad mayor al saldo");
 		} else {
 			double negativo = x * -1;
 			Movimiento mov = new Movimiento("Retirar dinero", negativo);
@@ -78,9 +94,10 @@ public class Cuenta {
 	 * 
 	 * @param x
 	 */
-	public void retirar(String concepto, double x) throws Exception{
-		if (x > getSaldo()) {
-			throw new Exception("No se puede retirar una cantidad negativa"); 
+	public void retirar(String concepto, double x) throws Exception {
+		double total = getSaldo(); 
+		if (x >total ) {
+			throw new Exception("No se puede retirar una cantidad negativa");
 		} else {
 			double negativo = x * -1;
 			Movimiento mov = new Movimiento(concepto, negativo);
