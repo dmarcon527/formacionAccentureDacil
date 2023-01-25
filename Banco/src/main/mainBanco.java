@@ -37,7 +37,8 @@ public class mainBanco {
 			 credito.setmCredito(5000.00);
 			System.out.println("Credito disponible "+credito.crditoDisponible());
 			credito.retirar(1000.00);
-			credito.liquidar(01, 2022);
+			credito.liquidar(01, 2023);
+			System.out.println("LIQUIDAR= "+credito.toString());
 			credito.pagoEnEstablecimiento("Clases de Pole", 40);
 			credito.ingresar(500);
 			

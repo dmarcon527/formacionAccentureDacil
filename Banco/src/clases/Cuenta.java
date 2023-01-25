@@ -9,7 +9,7 @@ import clases.hijas.Credito;
 
 public class Cuenta {
 
-	private List<Moviento> mMovimientos = new ArrayList<>();
+	private List<Movimiento> mMovimientos = new ArrayList<>();
 	private String mNumero;
 	private String mTitular;
 
@@ -18,7 +18,7 @@ public class Cuenta {
 		this.mTitular = mTitular;
 	}
 
-	public void addMovimiento(Moviento mMovimientos) {
+	public void addMovimiento(Movimiento mMovimientos) {
 		this.mMovimientos.add(mMovimientos);
 	}
 
@@ -33,7 +33,7 @@ public class Cuenta {
 		int contador = mMovimientos.size();
 		double importe = 0;
 		if (contador > 0) {
-			for (Moviento moviento : mMovimientos) {
+			for (Movimiento moviento : mMovimientos) {
 				importe = moviento.getmImporte();
 				saldo += importe;
 			}
@@ -47,12 +47,12 @@ public class Cuenta {
 	}
 
 	public void ingresar(double x) {
-		Moviento mov = new Moviento("Ingreso/Retirada en cajero automático", x);
+		Movimiento mov = new Movimiento("Ingreso/Retirada en cajero automático", x);
 		addMovimiento(mov);
 	}
 
 	public void ingresar(String concepto, double x) {
-		Moviento mov = new Moviento(concepto, x);
+		Movimiento mov = new Movimiento(concepto, x);
 		addMovimiento(mov);
 	}
 
@@ -67,7 +67,7 @@ public class Cuenta {
 			throw new Exception("No se puede retirar una cantidad negativa"); 
 		} else {
 			double negativo = x * -1;
-			Moviento mov = new Moviento("Retirar dinero", negativo);
+			Movimiento mov = new Movimiento("Retirar dinero", negativo);
 			addMovimiento(mov);
 		}
 	}
@@ -83,7 +83,7 @@ public class Cuenta {
 			throw new Exception("No se puede retirar una cantidad negativa"); 
 		} else {
 			double negativo = x * -1;
-			Moviento mov = new Moviento(concepto, negativo);
+			Movimiento mov = new Movimiento(concepto, negativo);
 			addMovimiento(mov);
 		}
 	}

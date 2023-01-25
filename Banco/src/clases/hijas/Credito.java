@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import clases.Moviento;
+import clases.Movimiento;
 import clases.Tarjeta;
 
 public class Credito extends Tarjeta {
 
 	private double mCredito;
-	private List<Moviento> mMovimientos = new ArrayList<>();
+	private List<Movimiento> mMovimientos = new ArrayList<>();
 
 	public Credito(LocalDate mFechaDeCaducidad, String mNumero, String mTitular) {
 		super(mFechaDeCaducidad, mNumero, mTitular);
@@ -36,22 +36,31 @@ public class Credito extends Tarjeta {
 
 	@Override
 	public void ingresar(double x) {
-		Moviento mov = new Moviento("Ingreso en cuenta asociada (cajero automático)", x);
-		getmCuentaAsociada().addMovimiento(mov);
+		Movimiento mov = new Movimiento("Ingreso en cuenta asociada (cajero automático)", x);
+		mMovimientos.add(mov);
 	}
 
 	public void liquidar(int mes, int anio) {
+		Movimiento mov = new Movimiento(); 
+		mov.setmConcepto("Liquidar");
+		
 		int contador = mMovimientos.size();
 		double total = 0;
+		System.out.println("PRUEBA"+contador);
 		if (contador > 0) {
-
+				
 			for (Iterator iterator = mMovimientos.iterator(); iterator.hasNext();) {
-				Moviento movimiento = (Moviento) iterator.next();
+				
+				Movimiento movimiento = (Movimiento) iterator.next();
 				if (movimiento.getmFecha().getMonthValue() == mes && movimiento.getmFecha().getYear() == anio) {
 					total += movimiento.getmImporte();
 					iterator.remove();
-					getmCuentaAsociada().addMovimiento(movimiento);
 				}
+			}
+			mov.setmImporte(total); 
+			if(total!=0) {
+				mMovimientos.add(mov);
+
 			}
 			/**
 			 * double importe = 0; int i=0; for (Moviento moviento : mMovimientos) { if
@@ -72,8 +81,9 @@ public class Credito extends Tarjeta {
 			throw new Exception("No se puede retirar una cantidad negativa"); 
 		} else {
 			double negativo = x * -1;
-			Moviento mov = new Moviento(datos, negativo);
-			getmCuentaAsociada().addMovimiento(mov);
+			Movimiento mov = new Movimiento(datos, negativo);
+			mMovimientos.add(mov);
+
 		}
 	}
 
@@ -83,8 +93,9 @@ public class Credito extends Tarjeta {
 			throw new Exception("No se puede retirar una cantidad negativa"); 
 		} else {
 			double negativo = x * -1;
-			Moviento mov = new Moviento("Retirar dinero", negativo);
-			getmCuentaAsociada().addMovimiento(mov);
+			Movimiento mov = new Movimiento("Retirar dinero", negativo);
+			mMovimientos.add(mov);
+
 		}
 
 	}

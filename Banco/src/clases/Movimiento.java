@@ -4,17 +4,19 @@ import java.time.LocalDate;
 
 /**
  * 
- * @author Dácil Marco Contreras Sé que la case se tiene que llamar Movimiento
- *         pero cuando me he dado cuenta he intentado hacer un refactor rename
- *         no me ha dejado
+ * @author Dácil Marco Contreras 
  */
-public class Moviento {
+public class Movimiento {
 
 	private String mConcepto;
 	private LocalDate mFecha;
 	private double mImporte;
+	
+	public Movimiento() {
+		this.mFecha = LocalDate.now();
+	}
 
-	public Moviento(String mConcepto, double mImporte) {
+	public Movimiento(String mConcepto, double mImporte) {
 		this.mConcepto = mConcepto;
 		this.mFecha = LocalDate.now();
 		this.mImporte = mImporte;
