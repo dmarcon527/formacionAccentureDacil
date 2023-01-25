@@ -37,7 +37,7 @@ public class Credito extends Tarjeta {
 	@Override
 	public void ingresar(double x) {
 		Moviento mov = new Moviento("Ingreso en cuenta asociada (cajero automático)", x);
-		addMovimiento(mov);
+		getmCuentaAsociada().addMovimiento(mov);
 	}
 
 	public void liquidar(int mes, int anio) {
@@ -50,7 +50,7 @@ public class Credito extends Tarjeta {
 				if (movimiento.getmFecha().getMonthValue() == mes && movimiento.getmFecha().getYear() == anio) {
 					total += movimiento.getmImporte();
 					iterator.remove();
-					addMovimiento(movimiento);
+					getmCuentaAsociada().addMovimiento(movimiento);
 				}
 			}
 			/**
@@ -73,7 +73,7 @@ public class Credito extends Tarjeta {
 		} else {
 			double negativo = x * -1;
 			Moviento mov = new Moviento(datos, negativo);
-			addMovimiento(mov);
+			getmCuentaAsociada().addMovimiento(mov);
 		}
 	}
 
@@ -84,12 +84,9 @@ public class Credito extends Tarjeta {
 		} else {
 			double negativo = x * -1;
 			Moviento mov = new Moviento("Retirar dinero", negativo);
-			addMovimiento(mov);
+			getmCuentaAsociada().addMovimiento(mov);
 		}
 
-	}
-	public void addMovimiento(Moviento mMovimientos) {
-		this.mMovimientos.add(mMovimientos);
 	}
 
 	@Override
