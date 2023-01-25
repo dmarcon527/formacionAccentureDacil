@@ -13,10 +13,11 @@ class CuentaTest {
 	final String NUM_CUENTA = "12345987545445454";
 	final String TITULAR = "Rocio Monte Fernandez";
 	final String TITU_ERR = "aass";
+	final String CONCEPTO = "Ingresar";
 	final double INGRESAR = 5000.00;
 	final double INGRESAR_NEG = -18;
 	final double RETIRAR = 1000.00;
-	final double RETIRAR2 = INGRESAR;
+	final double RETIRAR2 = 6000.00;
 
 	Cuenta cuenta;
 
@@ -30,17 +31,6 @@ class CuentaTest {
 		Assertions.assertThrows(LongitudTexto.class, () -> {
 			new Cuenta(NUM_CUENTA, TITU_ERR);
 		});
-
-	}
-
-	@Test
-	void testAddMovimiento() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetSaldo() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -49,33 +39,34 @@ class CuentaTest {
 			cuenta.ingresar(INGRESAR);
 			Assertions.assertEquals(INGRESAR, cuenta.getSaldo());
 		});
-		
 	}
-	
+
 	@Test
 	void testIngresarDouble_NEGATIVE() {
 		Assertions.assertThrows(Exception.class, () -> {
 			cuenta.ingresar(INGRESAR_NEG);
 		});
-		
+
 	}
 
 	@Test
 	void testIngresarStringDouble() {
-		fail("Not yet implemented");
+		Assertions.assertThrows(Exception.class, () -> {
+			cuenta.ingresar(CONCEPTO, INGRESAR_NEG);
+		});
 	}
 
 	@Test
 	void testRetirarDouble_sinExcep() {
-		
 		Assertions.assertThrows(Exception.class, () -> {
 			cuenta.retirar(RETIRAR);
 		});
 
 	}
+
 	@Test
 	void testRetirarDouble_conExcep() {
-		
+
 		Assertions.assertThrows(Exception.class, () -> {
 			cuenta.retirar(RETIRAR2);
 		});
@@ -84,7 +75,9 @@ class CuentaTest {
 
 	@Test
 	void testRetirarStringDouble() {
-		fail("Not yet implemented");
-	}
+		Assertions.assertThrows(Exception.class, () -> {
+			cuenta.retirar(CONCEPTO, RETIRAR);
+		});
 
+	}
 }

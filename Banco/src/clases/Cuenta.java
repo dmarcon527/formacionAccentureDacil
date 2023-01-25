@@ -78,8 +78,8 @@ public class Cuenta {
 	 * @param x
 	 */
 	public void retirar(double x) throws Exception {
-		double total = getSaldo(); 
-		if (x >total ) {
+		double total= getSaldo(); 
+		if (x >total) {
 			throw new Exception("No se puede retirar una cantidad mayor al saldo");
 		} else {
 			double negativo = x * -1;

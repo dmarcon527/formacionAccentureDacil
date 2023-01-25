@@ -17,17 +17,31 @@ public class Debito extends Tarjeta {
 
 	@Override
 	public void ingresar(double x) throws Exception {
-		getmCuentaAsociada().ingresar(x);
+		if(x>0) {
+				getmCuentaAsociada().ingresar(x);
+		}else {
+			throw new Exception("No se puede ingresar una cantidad negativa"); 
+		}
+	
 	}
 
 	@Override
 	public void pagoEnEstablecimiento(String datos, double x) throws Exception {
-		getmCuentaAsociada().retirar(datos, x);
+		if (x > getSaldo()) {
+			throw new Exception("No se puede pagar más de lo que tienes");
+		} else {
+			getmCuentaAsociada().retirar(datos, x);
+		}
+		
 	}
 
 	@Override
 	public void retirar(double x) throws Exception {
-		getmCuentaAsociada().retirar(x);
+		if (x > getSaldo()) {
+			throw new Exception("No se puede pagar más de lo que tienes");
+		} else {
+			getmCuentaAsociada().retirar(x);
+		}
 	}
 
 	@Override

@@ -35,30 +35,35 @@ public class Credito extends Tarjeta {
 	}
 
 	@Override
-	public void ingresar(double x) {
-		Movimiento mov = new Movimiento("Ingreso en cuenta asociada (cajero automático)", x);
+	public void ingresar(double x) throws Exception {
+		if(x >0) {
+				Movimiento mov = new Movimiento("Ingreso en cuenta asociada (cajero automático)", x);
 		mMovimientos.add(mov);
+		}else {
+			throw new Exception("No se puede ingresar una cantidad negativa"); 
+		}
+	
 	}
 
 	public void liquidar(int mes, int anio) {
-		Movimiento mov = new Movimiento(); 
+		Movimiento mov = new Movimiento();
 		mov.setmConcepto("Liquidar");
-		
+
 		int contador = mMovimientos.size();
 		double total = 0;
-		System.out.println("PRUEBA"+contador);
+		System.out.println("PRUEBA" + contador);
 		if (contador > 0) {
-				
+
 			for (Iterator iterator = mMovimientos.iterator(); iterator.hasNext();) {
-				
+
 				Movimiento movimiento = (Movimiento) iterator.next();
 				if (movimiento.getmFecha().getMonthValue() == mes && movimiento.getmFecha().getYear() == anio) {
 					total += movimiento.getmImporte();
 					iterator.remove();
 				}
 			}
-			mov.setmImporte(total); 
-			if(total!=0) {
+			mov.setmImporte(total);
+			if (total != 0) {
 				mMovimientos.add(mov);
 
 			}
@@ -78,19 +83,18 @@ public class Credito extends Tarjeta {
 	@Override
 	public void pagoEnEstablecimiento(String datos, double x) throws Exception {
 		if (x > getSaldo()) {
-			throw new Exception("No se puede retirar una cantidad negativa"); 
+			throw new Exception("No se puede pagar más de lo que tienes");
 		} else {
 			double negativo = x * -1;
 			Movimiento mov = new Movimiento(datos, negativo);
 			mMovimientos.add(mov);
-
 		}
 	}
 
 	@Override
-	public void retirar(double x) throws Exception {	
+	public void retirar(double x) throws Exception {
 		if (x > getSaldo()) {
-			throw new Exception("No se puede retirar una cantidad negativa"); 
+			throw new Exception("No se puede retirar una cantidad negativa");
 		} else {
 			double negativo = x * -1;
 			Movimiento mov = new Movimiento("Retirar dinero", negativo);
@@ -102,9 +106,7 @@ public class Credito extends Tarjeta {
 
 	@Override
 	public String toString() {
-		return super.toString()+"\nCredito [mCredito=" + mCredito + ", mMovimientos=" + mMovimientos + "]";
+		return super.toString() + "\nCredito [mCredito=" + mCredito + ", mMovimientos=" + mMovimientos + "]";
 	}
-	
-	
 
 }
