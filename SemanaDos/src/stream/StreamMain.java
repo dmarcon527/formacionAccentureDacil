@@ -14,6 +14,11 @@ public class StreamMain {
 		
 		Arrays.stream(numPar).forEach(System.out:: println);
 		
+		long contador = Arrays.stream(numeros)
+				.filter(s -> s%2==0)
+				.count(); 
+		System.out.println("Contador = "+contador);
+		
 	}
 
 }
