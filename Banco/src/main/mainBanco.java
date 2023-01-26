@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import clases.Cuenta;
 import clases.hijas.Credito;
 import clases.hijas.Debito;
+import utils.Filtros;
 
 /**
  * 
@@ -49,6 +50,8 @@ public class mainBanco {
 			credito.ingresar(500);
 
 			System.out.println(credito.toString());
+			
+			Filtros.fechaCorrecta("28-02-2025"); 
 
 		} catch (Exception e) {
 			System.out.println(e);

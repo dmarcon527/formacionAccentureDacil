@@ -1,6 +1,13 @@
 package utils;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Iterator;
 
 //import excepciones.LongitudTexto;
 
@@ -72,6 +79,18 @@ public class Filtros {
 			fechaCorrecta = true;
 		}
 		return fechaCorrecta;
+	}
+	
+	public static boolean fechaCorrecta(String fecha)  {
+		boolean fechaCorrecta = false; 
+	
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate fecha2 = LocalDate.parse(fecha, formato);
+	
+		System.out.println(fecha2);
+		
+	
+		return fechaCorrecta; 
 	}
 
 }
