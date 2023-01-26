@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 public class Filtros {
 
-	final static int TEXTO_MIN = 20;
+	final static int TEXTO_MIN = 15;
 	final static int TEXTO_MAX = 30;
 
 	/**
