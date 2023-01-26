@@ -24,6 +24,7 @@ class CuentaTest {
 	@BeforeEach
 	void creacion() {
 		cuenta = new Cuenta(NUM_CUENTA, TITULAR);
+	
 	}
 
 	@Test
@@ -58,8 +59,10 @@ class CuentaTest {
 
 	@Test
 	void testRetirarDouble_sinExcep() {
+	
 		Assertions.assertThrows(Exception.class, () -> {
-			cuenta.retirar(RETIRAR);
+				cuenta.ingresar(INGRESAR);
+				cuenta.retirar(RETIRAR);
 		});
 
 	}
