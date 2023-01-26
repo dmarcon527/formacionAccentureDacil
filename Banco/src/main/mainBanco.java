@@ -50,8 +50,14 @@ public class mainBanco {
 			credito.ingresar(500);
 
 			System.out.println(credito.toString());
-			
-			Filtros.fechaCorrecta("28-02-2025"); 
+
+			boolean fechaCorrecta = Filtros.fechaCorrecta("28-02-2025");
+			if (fechaCorrecta == true) {
+				System.out.println("Fecha correcta");
+			} else {
+				System.err.println("Fecha no correcta");
+
+			}
 
 		} catch (Exception e) {
 			System.out.println(e);
