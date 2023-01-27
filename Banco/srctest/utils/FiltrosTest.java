@@ -17,7 +17,7 @@ class FiltrosTest {
 	final LocalDate FECHA_PRINCIPAL1 = LocalDate.of(2031, 4, 25);
 	final LocalDate FECHA_PRINCIPAL2 = LocalDate.of(2023, 4, 25);
 	final String FECHA_CORRECTA="28-02-2025"; 
-	final String FECHA_INCORRECT="28/02/2025";
+	final String FECHA_CORRECTA2="28/02/2025";
 	final String FECHA_INCORRECT1="28.02.2025";
 	final String FECHA_INCORRECT2="28022025";
 
@@ -66,11 +66,10 @@ class FiltrosTest {
 			Filtros.fechaCorrecta(FECHA_CORRECTA); 
 		});
 	}
-	
 	@Test
-	void fechaCorrecta_false() {
+	void fechaCorrecta_true2() {
 		Assertions.assertThrows(Exception.class, () -> {
-			Filtros.fechaCorrecta(FECHA_INCORRECT); 
+			Filtros.fechaCorrecta(FECHA_CORRECTA2, "dd/MM/yyyy"); 
 		});
 	}
 	

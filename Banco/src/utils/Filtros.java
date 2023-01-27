@@ -10,6 +10,8 @@ import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.util.Iterator;
 
+import excepciones.FechaErronea;
+
 //import excepciones.LongitudTexto;
 
 /**
@@ -82,15 +84,27 @@ public class Filtros {
 		return fechaCorrecta;
 	}
 
-	public static boolean fechaCorrecta(String fecha) {
-		boolean fechaCorrecta = false;
-		if (fecha != null) {
-			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-			LocalDate fecha2 = LocalDate.parse(fecha, formato);
-			fechaCorrecta = true;
+	/**
+	 * 
+	 * @param fecha
+	 * @param format
+	 * @return
+	 */
+	public static LocalDate fechaCorrecta(String fecha, String format) {
+		try {
+		 if (format.equals("dd/MM/yyyy")) {
+				DateTimeFormatter formato = DateTimeFormatter.ofPattern(format);
+				LocalDate fecha2 = LocalDate.parse(fecha, formato);
+				return fecha2;
+			}
+			return null;
+		} catch (DateTimeParseException e) {
+			throw new FechaErronea();
 		}
-		return fechaCorrecta;
+	}
 
+	public static LocalDate fechaCorrecta(String fecha) {
+		return fechaCorrecta(fecha, "dd-MM-yyyy");
 	}
 
 }

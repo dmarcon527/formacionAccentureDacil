@@ -51,13 +51,10 @@ public class mainBanco {
 
 			System.out.println(credito.toString());
 
-			boolean fechaCorrecta = Filtros.fechaCorrecta("28-02-2025");
-			if (fechaCorrecta == true) {
-				System.out.println("Fecha correcta");
-			} else {
-				System.err.println("Fecha no correcta");
-
-			}
+			Filtros.fechaCorrecta("28/02/2025", "dd/MM/yyyy");
+			Filtros.fechaCorrecta("28-02-2025");
+			System.out.println("Fechas correctas\nLa siguiente Falla");
+			Filtros.fechaCorrecta("28/02/2025", null);
 
 		} catch (Exception e) {
 			System.out.println(e);
