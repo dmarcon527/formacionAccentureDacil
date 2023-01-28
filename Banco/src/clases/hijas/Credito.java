@@ -37,34 +37,33 @@ public class Credito extends Tarjeta {
 
 	@Override
 	public void ingresar(double x) throws Exception {
-		if(x >0) {
-				Movimiento mov = new Movimiento("Ingreso en cuenta asociada (cajero automático)", x);
-		mMovimientos.add(mov);
-		}else {
-			throw new Exception("No se puede ingresar una cantidad negativa"); 
+		if (x > 0) {
+			Movimiento mov = new Movimiento("Ingreso en cuenta asociada (cajero automático)", x);
+			mMovimientos.add(mov);
+		} else {
+			throw new Exception("No se puede ingresar una cantidad negativa");
 		}
-	
+
 	}
 
 	public void liquidar(int mes, int anio) {
 		Movimiento mov = new Movimiento();
 		mov.setmConcepto("Liquidar");
 
-		//int contador = mMovimientos.size();
+		int contador = mMovimientos.size();
 		double total = 0;
-		//System.out.println("PRUEBA" + contador);
-		
-		total = mMovimientos.stream()
-				.filter(mov2 -> mov.getmFecha().getMonthValue()==mes && mov.getmFecha().getYear()==anio)
-				.map(mov2-> mov.getmImporte())				
-				.reduce(0d, (subtotal, element)-> subtotal+element); 
-		
-		/**mMovimientos = new List<Movimiento>(mMovimientos.stream()
-				.filter(mov2 -> !(mov.getmFecha().getMonthValue()==mes && mov.getmFecha().getYear()==anio))
-				.*/
-		System.out.println("Total STREAM = "+total);
-			
-		/**if (contador > 0) {
+
+		/**
+		 * total = mMovimientos.stream() .filter(mov2 ->
+		 * mov.getmFecha().getMonthValue()==mes && mov.getmFecha().getYear()==anio)
+		 * .map(mov2-> mov.getmImporte()) .reduce(0d, (subtotal, element)->
+		 * subtotal+element);
+		 * 
+		 * mMovimientos = new List<Movimiento>(mMovimientos.stream() .filter(mov2 ->
+		 * !(mov.getmFecha().getMonthValue()==mes && mov.getmFecha().getYear()==anio)) .
+		 * System.out.println("Total STREAM = "+total);
+		 */
+		if (contador > 0) {
 
 			for (Iterator iterator = mMovimientos.iterator(); iterator.hasNext();) {
 
@@ -73,24 +72,15 @@ public class Credito extends Tarjeta {
 					total += movimiento.getmImporte();
 					iterator.remove();
 				}
-			}*/
+			}
 			mov.setmImporte(total);
-			//if (total != 0) {
+			if (total != 0) {
 				mMovimientos.add(mov);
-		//	}
-			
-			/**
-			 * double importe = 0; int i=0; for (Moviento moviento : mMovimientos) { if
-			 * (moviento.getmFecha().getMonthValue() == mes &&
-			 * moviento.getmFecha().getYear() == anio) { importe = moviento.getmImporte();
-			 * total += importe; mMovimientos.remove(i); i++; }else { i++; }
-			 * 
-			 * }
-			 */
+			}
 
 		}
 
-	//}
+	}
 
 	@Override
 	public void pagoEnEstablecimiento(String datos, double x) throws Exception {
