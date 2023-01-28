@@ -11,8 +11,8 @@ import java.util.regex.Pattern;
  * DESCRIPCION: Clase auxiliar para validar los datos que sean introducidos en
  * la aplicaci�n.
  * 
- * @version 30/01/2023
- * @author Miguel Garcia
+ * @version 28/01/2023
+ * @author Dácil Marco 
  * 
  ******************************************************************************************/
 public class Validator {
