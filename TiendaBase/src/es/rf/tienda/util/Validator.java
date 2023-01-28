@@ -337,7 +337,6 @@ public class Validator {
 				fechaCorrecta = true;
 			} catch (DateTimeParseException e) {
 				fechaCorrecta = false;
-				System.out.println(e);
 			}
 
 		}
