@@ -1,6 +1,8 @@
 package es.rf.tienda.util;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
 
 /********************************************************************************************
@@ -152,11 +154,9 @@ public class Validator {
 			if (letra == res) {
 				dniCorrecto = true;
 			}
-
 		}
 
 		return dniCorrecto;
-
 	}
 
 	/**
@@ -182,7 +182,6 @@ public class Validator {
 			cumpleRango = true;
 		}
 		return cumpleRango;
-
 	}
 
 	/**
@@ -264,14 +263,13 @@ public class Validator {
 	 * @param longitudMaxima (int) M�xima longitud v�lida para el texo
 	 * 
 	 * @return true, si la longitud del texto cumple: longitudMinima <=
-	 *         longitudTexto <=longitudMaxima FECHA: Enero 2023 
-	 *         AUTOR: Dácil Marco
-	 *         - Sevilla
+	 *         longitudTexto <=longitudMaxima FECHA: Enero 2023 AUTOR: Dácil Marco -
+	 *         Sevilla
 	 * 
 	 **************************************************************************************/
 	public static boolean cumpleLongitud(String texto, int longitudMinima, int longitudMaxima) {
 		boolean cumpleLongitud = false;
-		if (texto.length() <= longitudMinima && texto.length() <= longitudMaxima ) {
+		if (texto.length() <= longitudMinima && texto.length() <= longitudMaxima) {
 			cumpleLongitud = true;
 		}
 		return cumpleLongitud;
@@ -282,12 +280,16 @@ public class Validator {
 	 * 
 	 * @param fecha
 	 * @param min
-	 * @return
+	 * @return AUTOR: Dácil Marco
 	 */
 
 	public static boolean valDateMin(LocalDate fecha, LocalDate min) {
-		
-		return  true; 
+		boolean fechaCorrecta = false;
+		if (fecha.getMonthValue() >= min.getMonthValue() && fecha.getYear() >= min.getYear()
+				&& fecha.getDayOfMonth() >= min.getDayOfMonth()) {
+			fechaCorrecta = true;
+		}
+		return fechaCorrecta;
 	}
 
 	/**
@@ -295,11 +297,15 @@ public class Validator {
 	 * 
 	 * @param fecha
 	 * @param max
-	 * @return
+	 * @return AUTOR: Dácil Marco
 	 */
 	public static boolean valDateMax(LocalDate fecha, LocalDate max) {
-		return true;
-
+		boolean fechaCorrecta = false;
+		if (fecha.getMonthValue() <= max.getMonthValue() && fecha.getYear() <= max.getYear()
+				&& max.getDayOfMonth() <= max.getDayOfMonth()) {
+			fechaCorrecta = true;
+		}
+		return fechaCorrecta;
 	}
 
 	/**
@@ -307,11 +313,35 @@ public class Validator {
 	 * formato
 	 * 
 	 * @param fecha
-	 * @return
+	 * @return AUTOR: Dácil Marco
 	 */
 	public static boolean esFechaValida(String fecha) {
-		return true;
+		boolean fechaCorrecta = esFechaValida(fecha, "dd/MM/yyyy");
+		return fechaCorrecta;
 
+	}
+
+	/**
+	 * Le paso la fecha y el formato
+	 * 
+	 * @param fecha
+	 * @param format
+	 * @return true si el formato es el correcto AUTOR: Dácil Marco
+	 */
+	public static boolean esFechaValida(String fecha, String format) {
+		boolean fechaCorrecta = false;
+		if (format.equals("dd/MM/yyyy")) {
+			try {
+				DateTimeFormatter formato = DateTimeFormatter.ofPattern(format);
+				LocalDate fecha2 = LocalDate.parse(fecha, formato);
+				fechaCorrecta = true;
+			} catch (DateTimeParseException e) {
+				fechaCorrecta = false;
+				System.out.println(e);
+			}
+
+		}
+		return fechaCorrecta;
 	}
 
 	/**
@@ -319,24 +349,25 @@ public class Validator {
 	 * con lasnormas de contrase�a
 	 * 
 	 * @param password string con la contrase�a introducida
-	 * @return true si cumple con las especificaciones
+	 * @return true si cumple con las especificaciones AUTOR: Dácil Marco
 	 */
 	public static boolean esPasswordValida(String password) {
-		return true;
-
+		boolean passwordCorrecta = Pattern.matches(PASSWORD_PATTERN, password);
+		return passwordCorrecta;
 	}
+
 	/**
-	 * Comprueba que una cadena no introducen en null o vacia 
+	 * Comprueba que una cadena no introducen en null o vacia
+	 * 
 	 * @param prueba
-	 * @return
-	 * AUTOR: Dácil Marco
+	 * @return AUTOR: Dácil Marco
 	 */
 	public static boolean isVacio(String prueba) {
-		boolean isVacio= false; 
-		if(prueba==null || prueba.isEmpty() ) {
-			isVacio = true; 
+		boolean isVacio = false;
+		if (prueba == null || prueba.isEmpty()) {
+			isVacio = true;
 		}
-		return isVacio; 
+		return isVacio;
 	}
-	
+
 }
