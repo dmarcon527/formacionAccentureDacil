@@ -19,9 +19,6 @@ import excepciones.FechaErronea;
 
 public class Filtros {
 
-	final static int TEXTO_MIN = 15;
-	final static int TEXTO_MAX = 30;
-
 	/**
 	 * Comprueba la longuitud del texto si cumple la condición devuelve true y si no
 	 * false
@@ -31,9 +28,9 @@ public class Filtros {
 	 * @param min   minimo de caracteres
 	 * @return
 	 */
-	public static boolean longitudTexto(String texto) {
+	public static boolean longitudTexto(String texto, int min, int max) {
 		boolean textoCorrecto = false;
-		if (texto.length() >= TEXTO_MIN && texto.length() <= TEXTO_MAX) {
+		if (texto.length() >= min && texto.length() <= max) {
 			textoCorrecto = true;
 		} else {
 			textoCorrecto = false;
@@ -52,14 +49,14 @@ public class Filtros {
 	 * @return
 	 */
 	public static boolean ingresosGastos(double ingreso, int gasto, int min, int max) {
-		boolean textoCorrecto = false;
+		boolean ingresoCorrecto = false;
 		if (ingreso >= min && ingreso <= max) {
 			if (gasto >= min && gasto <= max) {
-				textoCorrecto = true;
+				ingresoCorrecto = true;
 			}
 
 		}
-		return textoCorrecto;
+		return ingresoCorrecto;
 	}
 
 	/**
