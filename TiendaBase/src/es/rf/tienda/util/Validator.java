@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * NOMBRE: Validator.java
  * 
  * DESCRIPCION: Clase auxiliar para validar los datos que sean introducidos en
- * la aplicaci�n.
+ * la aplicación.
  * 
  * @version 28/01/2023
  * @author Dácil Marco 
@@ -21,29 +21,29 @@ public class Validator {
 
 	private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
 	/**
-	 * Patr�n para validar el email, evitando puntos finales antes de la @ y que
-	 * solo contenga car�cteres alfanum�ricos
+	 * Patrón para validar el email, evitando puntos finales antes de la @ y que
+	 * solo contenga carácteres alfanuméricos
 	 */
 	private final static String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+{1,20})*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+{1,20})*(\\.[A-Za-z]{2,5})$";
 
 	/**
-	 * Permite verificar que un DNI cumple con el patr�n XX.XXX.XXX-L
+	 * Permite verificar que un DNI cumple con el patrón XX.XXX.XXX-L
 	 */
 	private final static String DNI_PATTERN = "\\d{2}\\.\\d{3}\\.\\d{3}-[a-zA-Z]";
 
 	/**
-	 * Permite validar un tel�fono, el cual debe contener de 10 a 20 d�gitos y donde
-	 * los espacios est�n permitidos
+	 * Permite validar un teléfono, el cual debe contener de 10 a 20 dígitos y donde
+	 * los espacios están permitidos
 	 */
 	private final static String PHONE_PATTERN = "[\\d ]{10,20}";
 
 	/**
-	 * Orden de las letras con las cuales se comprobar� la validez del DNI
+	 * Orden de las letras con las cuales se comprobar la validez del DNI
 	 */
 	private final static String LETRA_DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 
 	/**
-	 * Longitud que debe tener todo DNI pasado a la aplicaci�n.
+	 * Longitud que debe tener todo DNI pasado a la aplicación.
 	 */
 	private final static int LONGITUD_DNI = 12;
 
@@ -53,11 +53,11 @@ public class Validator {
 	 * 
 	 * DESCRIPCI�N:
 	 *//**
-		 * Permite verificar que el texto pasado solo contiene caracters alfanum�ricos
+		 * Permite verificar que el texto pasado solo contiene caracters alfanuméricos
 		 * 
-		 * @param texto String a verificar que solo tenga car�cteres alfanum�ricos
+		 * @param texto String a verificar que solo tenga carácteres alfanuméricos
 		 * 
-		 * @return true, si cumple solo contiene caracters alfanum�ricos. <br>
+		 * @return true, si cumple solo contiene caracters alfanuméricos. <br>
 		 *         false en caso contrario FECHA: Enero 2023
 		 * 
 		 *         AUTOR: Dácil Marco - Sevilla
@@ -74,12 +74,12 @@ public class Validator {
 	 * 
 	 * DESCRIPCI�N:
 	 *//**
-		 * El phone number debe tener un total de entre 10 y 20, contando d�gitos y
-		 * espacios. M�nimo aceptable son 10 d�gitos.
+		 * El phone number debe tener un total de entre 10 y 20, contando dígitos y
+		 * espacios. Mínimo aceptable son 10 dígitos.
 		 * 
-		 * @param phoneNumber String con el n�mero de telefono de entre 10 y 20 d�gitos.
-		 *                    Puede tener espacios, pero siempre con 10 d�gitos como
-		 *                    m�nimo.
+		 * @param phoneNumber String con el número de telefono de entre 10 y 20 dígitos.
+		 *                    Puede tener espacios, pero siempre con 10 dígitos como
+		 *                    mínimo.
 		 * 
 		 * @return true, si cumple todas las condiciones
 		 *
@@ -97,11 +97,11 @@ public class Validator {
 	 * 
 	 * DESCRIPCI�N:
 	 *//**
-		 * Comprueba si el email tiene un formato que pueda ser v�lido.
+		 * Comprueba si el email tiene un formato que pueda ser válido.
 		 * 
 		 * @param email String a comprobar
 		 * 
-		 * @return true, en caso que el formato sea v�lido FECHA: Enero 2023
+		 * @return true, en caso que el formato sea válido FECHA: Enero 2023
 		 * 
 		 *         AUTOR: Dácil Marco
 		 * 
@@ -115,9 +115,9 @@ public class Validator {
 	 * *****************************************************************************
 	 * ********** NOMBRE: cumpleDNI *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 *//**
-		 * Esta funci�n verifica que el DNI cumple el siguiente formato: xx.xxx.xxx-L
+		 * Esta función verifica que el DNI cumple el siguiente formato: xx.xxx.xxx-L
 		 *
 		 * El DNI ha de tener longitud 12
 		 * 
@@ -163,14 +163,14 @@ public class Validator {
 	 * ***************************************************************************************
 	 * NOMBRE: cumpleRango *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 */
 	/**
-	 * Comprueba que un N�mero se necuentra entre 2 valores
+	 * Comprueba que un Número se necuentra entre 2 valores
 	 * 
 	 * @param valor       (int)/(double) N�mero a comprobar
-	 * @param valorMinimo (int) N�mero valor aceptable
-	 * @param valorMaximo (int) M�N�mero valor aceptable
+	 * @param valorMinimo (int) Número valor aceptable
+	 * @param valorMaximo (int) valorMaximo valor aceptable
 	 * 
 	 * @return true si valorMinimo < valor < valorMaximo FECHA: Enero 2023
 	 *         AUTOR:Dácil Marco
@@ -205,13 +205,13 @@ public class Validator {
 	 * *****************************************************************************
 	 * ********** NOMBRE: cumpleLongitudMin *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 *//**
 		 * Comprobar que el texto pasado tiene una longitud de al menos x caracteres,
-		 * siendo x el entero pasado como par�metro
+		 * siendo x el entero pasado como parámetro
 		 * 
 		 * @param texto          String texto a comprobar
-		 * @param longitudMinima int que indique longitud m�nima.
+		 * @param longitudMinima int que indique longitud mínima.
 		 * 
 		 * @return cierto, si la longitud del texto es mayor o igual que longitudMinima
 		 *         FECHA: Enero 2023 AUTOR: Dácil Marco
@@ -229,15 +229,15 @@ public class Validator {
 	 * *****************************************************************************
 	 * ********** NOMBRE: cumpleLongitudMax *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 *//**
 		 * Comprobar que el texto pasado tiene una longitud de, como mucho, x
-		 * caracteres, siendo x el entero pasado como par�metro
+		 * caracteres, siendo x el entero pasado como parámetro
 		 * 
 		 * @param texto          String con el texto a comprobar
-		 * @param longitudMaxima int con la longitud m�xima del texto
+		 * @param longitudMaxima int con la longitud máxima del texto
 		 * 
-		 * @return true, si el texto es menor o igual que la longitud m�xima. FECHA:
+		 * @return true, si el texto es menor o igual que la longitud máxima. FECHA:
 		 *         Enero 2023 AUTOR: Dácil Marco
 		 * 
 		 **************************************************************************************/
@@ -252,15 +252,15 @@ public class Validator {
 	/****************************************************************************************
 	 * NOMBRE: cumpleLongitud *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 */
 	/**
-	 * Comprobar que la longitud de un texto se encuentra entre unos valores m�ximos
-	 * y m�nimos
+	 * Comprobar que la longitud de un texto se encuentra entre unos valores máximos
+	 * y mínimos
 	 * 
 	 * @param texto          String con el texto que a validar
-	 * @param longitudMinima (int) M�nima longitud del texto
-	 * @param longitudMaxima (int) M�xima longitud v�lida para el texo
+	 * @param longitudMinima (int) Minima longitud del texto
+	 * @param longitudMaxima (int) Mxima longitud válida para el texo
 	 * 
 	 * @return true, si la longitud del texto cumple: longitudMinima <=
 	 *         longitudTexto <=longitudMaxima FECHA: Enero 2023 AUTOR: Dácil Marco -
@@ -276,7 +276,7 @@ public class Validator {
 	}
 
 	/**
-	 * Valida una fecha calendar con m�nimo min
+	 * Valida una fecha calendar con mínimo min
 	 * 
 	 * @param fecha
 	 * @param min
@@ -293,7 +293,7 @@ public class Validator {
 	}
 
 	/**
-	 * Valida una fecha calendar con m�ximo max
+	 * Valida una fecha calendar con máximo max
 	 * 
 	 * @param fecha
 	 * @param max
@@ -345,9 +345,9 @@ public class Validator {
 
 	/**
 	 * Nombre esPasswordValida Descripcion Comprueba que la cadena recibida cumpla
-	 * con lasnormas de contrase�a
+	 * con lasnormas de contraseña
 	 * 
-	 * @param password string con la contrase�a introducida
+	 * @param password string con la contraseña introducida
 	 * @return true si cumple con las especificaciones AUTOR: Dácil Marco
 	 */
 	public static boolean esPasswordValida(String password) {

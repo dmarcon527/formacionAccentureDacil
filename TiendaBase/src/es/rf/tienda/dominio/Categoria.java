@@ -22,12 +22,10 @@ public class Categoria {
 	public Categoria(){}
 	
 	
-/*	
- * HEMOS BORRADO EL VALIDADOR DE isVacio
- * public boolean isValid(){	
+  public boolean isValid(){	
 		return !Validator.isVacio(cat_nombre) &&
 				id_categoria > 0;
-	}*/
+	}
 	
 	/**
 	 * Getter para identificador de categoria
