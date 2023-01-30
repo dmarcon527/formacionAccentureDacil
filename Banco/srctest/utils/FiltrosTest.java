@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class FiltrosTest {
-
+	final int MIN = 15;
+	final int MAX = 30;
 	final String TITULAR = "123456789101112131415161718";
 	final String TITULAR1 = "12345678910111213141516171811111111111111111111111111111111111111111111111111111111111111111";
 	final LocalDate FECHA_PRINCIPAL = LocalDate.of(2024, 4, 25);
@@ -16,19 +17,19 @@ class FiltrosTest {
 	final LocalDate FECHA_MAX = LocalDate.of(2025, 4, 25);
 	final LocalDate FECHA_PRINCIPAL1 = LocalDate.of(2031, 4, 25);
 	final LocalDate FECHA_PRINCIPAL2 = LocalDate.of(2023, 4, 25);
-	final String FECHA_CORRECTA="28-02-2025"; 
-	final String FECHA_CORRECTA2="28/02/2025";
-	final String FECHA_INCORRECT1="28.02.2025";
-	final String FECHA_INCORRECT2="28022025";
+	final String FECHA_CORRECTA = "28-02-2025";
+	final String FECHA_CORRECTA2 = "28/02/2025";
+	final String FECHA_INCORRECT1 = "28.02.2025";
+	final String FECHA_INCORRECT2 = "28022025";
 
 	@Test
 	void testLongitudTexto() {
-		assertTrue(Filtros.longitudTexto(TITULAR));
+		assertTrue(Filtros.longitudTexto(TITULAR, MIN, MAX));
 	}
 
 	@Test
 	void testLongitudTextoSupera() {
-		assertFalse(Filtros.longitudTexto(TITULAR1));
+		assertFalse(Filtros.longitudTexto(TITULAR1, MIN, MAX));
 	}
 
 	@Test
@@ -60,30 +61,32 @@ class FiltrosTest {
 	void fechaVencimiento_null() {
 		assertTrue(Filtros.fechaVencimiento(null, FECHA_MIN, FECHA_MAX));
 	}
+
 	@Test
 	void fechaCorrecta_true() {
 		Assertions.assertThrows(Exception.class, () -> {
-			Filtros.fechaCorrecta(FECHA_CORRECTA); 
+			Filtros.fechaCorrecta(FECHA_CORRECTA);
 		});
 	}
+
 	@Test
 	void fechaCorrecta_true2() {
 		Assertions.assertThrows(Exception.class, () -> {
-			Filtros.fechaCorrecta(FECHA_CORRECTA2, "dd/MM/yyyy"); 
+			Filtros.fechaCorrecta(FECHA_CORRECTA2, "dd/MM/yyyy");
 		});
 	}
-	
+
 	@Test
 	void fechaCorrecta_false1() {
 		Assertions.assertThrows(Exception.class, () -> {
-			Filtros.fechaCorrecta(FECHA_INCORRECT1); 
+			Filtros.fechaCorrecta(FECHA_INCORRECT1);
 		});
 	}
-	
+
 	@Test
 	void fechaCorrecta_false2() {
 		Assertions.assertThrows(Exception.class, () -> {
-			Filtros.fechaCorrecta(FECHA_INCORRECT2); 
+			Filtros.fechaCorrecta(FECHA_INCORRECT2);
 		});
 	}
 }

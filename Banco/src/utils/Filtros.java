@@ -69,10 +69,12 @@ public class Filtros {
 	 */
 	public static boolean fechaVencimiento(LocalDate fecha, LocalDate fechMin, LocalDate fechMax) {
 		boolean fechaCorrecta = false;
+		if(fecha!= null) {
 		LocalDate min = fechMin.plusYears(3);
 		LocalDate max = fechMax.plusYears(5);
 		if (fecha.getYear() > min.getYear() && fecha.getYear() < max.getYear()) {
 			fechaCorrecta = true;
+		}
 		}
 		return fechaCorrecta;
 	}

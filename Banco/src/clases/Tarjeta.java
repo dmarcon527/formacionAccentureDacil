@@ -13,7 +13,7 @@ public abstract class Tarjeta {
 	protected String mTitular;
 
 	public Tarjeta(LocalDate mFechaDeCaducidad, String mNumero, String mTitular) {
-		boolean textoCorrecto = Filtros.longitudTexto(mTitular);
+		boolean textoCorrecto = Filtros.longitudTexto(mTitular, 15,20);
 		if (textoCorrecto = true) {
 			this.mFechaDeCaducidad = mFechaDeCaducidad;
 			this.mNumero = mNumero;
