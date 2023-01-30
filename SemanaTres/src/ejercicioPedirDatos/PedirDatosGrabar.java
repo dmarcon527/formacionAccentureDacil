@@ -5,28 +5,38 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Dácil Marco Contreras
+ *
+ */
 public class PedirDatosGrabar {
-
+	/**
+	 * Leemos el fichero que hemos creado y mostramos por pantalla
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
-		
+
 		FileWriter fichero = new FileWriter("C:\\AreaTrabajo\\cursowk\\NombrePersona.txt");
 		PrintWriter printWriter = new PrintWriter(fichero);
 		Scanner teclado = new Scanner(System.in);
-		String nombre, apellido; 
-		
+		String nombre, apellido;
+
 		System.out.println("Introduce tu nombre");
 		nombre = teclado.nextLine();
-		
+
 		System.out.println("Introduce tu apellido");
 		apellido = teclado.nextLine();
-		
-	System.out.println("Nombre " + nombre +" Apellido " + nombre);
-		for (int i =0; i<=1; i++) {
-				if(i==0) {
+
+		System.out.println("Nombre " + nombre + " Apellido " + nombre);
+		for (int i = 0; i <= 1; i++) {
+			if (i == 0) {
 				printWriter.println("NOMBRE: " + nombre);
-				}else {
-					printWriter.println("APELLIDO: " + apellido);
-				}
+			} else {
+				printWriter.println("APELLIDO: " + apellido);
+			}
 		}
 
 		fichero.close();

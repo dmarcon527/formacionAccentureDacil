@@ -3,8 +3,17 @@ package ejercicioPedirDatos;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Dácil Marco Contreras
+ *
+ */
 public class LeerFicheroCreado {
-
+	/**
+	 * Creamos un fichero pedimos los datos por teclado y lo escribimos en fichero
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		String carpeta = "C:\\AreaTrabajo\\cursowk\\";
 		String archivo = "NombrePersona.txt";
