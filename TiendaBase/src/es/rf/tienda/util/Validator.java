@@ -46,7 +46,7 @@ public class Validator {
 	 * *****************************************************************************
 	 * ********** NOMBRE: isAlfanumeric *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 *//**
 		 * Permite verificar que el texto pasado solo contiene caracters alfanuméricos
 		 * 
@@ -67,7 +67,7 @@ public class Validator {
 	 * *****************************************************************************
 	 * ********** NOMBRE: cumplePhoneNumber *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 *//**
 		 * El phone number debe tener un total de entre 10 y 20, contando dígitos y
 		 * espacios. Mínimo aceptable son 10 dígitos.
@@ -90,7 +90,7 @@ public class Validator {
 	 * *****************************************************************************
 	 * ********** NOMBRE: isEmailValido *
 	 * 
-	 * DESCRIPCI�N:
+	 * DESCRIPCIÓN:
 	 *//**
 		 * Comprueba si el email tiene un formato que pueda ser válido.
 		 * 
@@ -163,7 +163,7 @@ public class Validator {
 	/**
 	 * Comprueba que un Número se necuentra entre 2 valores
 	 * 
-	 * @param valor       (int)/(double) N�mero a comprobar
+	 * @param valor       (int)/(double) Número a comprobar
 	 * @param valorMinimo (int) Número valor aceptable
 	 * @param valorMaximo (int) valorMaximo valor aceptable
 	 * 
