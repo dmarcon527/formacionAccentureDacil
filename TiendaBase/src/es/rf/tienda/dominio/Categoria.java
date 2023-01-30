@@ -6,7 +6,7 @@ import es.rf.tienda.util.Validator;
  * 
  * Nombre		Categoria
  * Descripcion	Lista de categorías
- * @author 		Miguel Garcia
+ * @author 		Dácil Marco
  * @version		13 de abr. de 2016
  *
  */
