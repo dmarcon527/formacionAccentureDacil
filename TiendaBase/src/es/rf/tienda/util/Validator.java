@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * la aplicación.
  * 
  * @version 28/01/2023
- * @author Dácil Marco 
+ * @author Dácil Marco
  * 
  ******************************************************************************************/
 public class Validator {
@@ -41,6 +41,11 @@ public class Validator {
 	 * Longitud que debe tener todo DNI pasado a la aplicación.
 	 */
 	private final static int LONGITUD_DNI = 12;
+
+	/**
+	 * Pattern id del producto
+	 */
+	private final static String ID_PRODUCTO = "^[A-Z]{2}[0-9]{3}$";
 
 	/*
 	 * *****************************************************************************
@@ -258,8 +263,10 @@ public class Validator {
 	 * @param longitudMaxima (int) Mxima longitud válida para el texo
 	 * 
 	 * @return true, si la longitud del texto cumple: longitudMinima <=
-	 *         longitudTexto <=longitudMaxima FECHA: Enero 2023 AUTOR: Dácil Marco -
-	 *         Sevilla
+	 *         longitudTexto <=longitudMaxima
+	 * 
+	 * 
+	 *         AUTOR: Dácil Marco -FECHA: Enero 2023 Sevilla
 	 * 
 	 **************************************************************************************/
 	public static boolean cumpleLongitud(String texto, int longitudMinima, int longitudMaxima) {
@@ -275,7 +282,9 @@ public class Validator {
 	 * 
 	 * @param fecha
 	 * @param min
-	 * @return AUTOR: Dácil Marco
+	 * @return
+	 * 
+	 *         AUTOR: Dácil Marco
 	 */
 
 	public static boolean valDateMin(LocalDate fecha, LocalDate min) {
@@ -291,7 +300,9 @@ public class Validator {
 	 * 
 	 * @param fecha
 	 * @param max
-	 * @return AUTOR: Dácil Marco
+	 * @return
+	 * 
+	 *         AUTOR: Dácil Marco
 	 */
 	public static boolean valDateMax(LocalDate fecha, LocalDate max) {
 		boolean fechaCorrecta = false;
@@ -306,7 +317,9 @@ public class Validator {
 	 * formato
 	 * 
 	 * @param fecha
-	 * @return AUTOR: Dácil Marco
+	 * @return
+	 * 
+	 *         AUTOR: Dácil Marco
 	 */
 	public static boolean esFechaValida(String fecha) {
 		boolean fechaCorrecta = esFechaValida(fecha, "dd/MM/yyyy");
@@ -319,7 +332,9 @@ public class Validator {
 	 * 
 	 * @param fecha
 	 * @param format
-	 * @return true si el formato es el correcto AUTOR: Dácil Marco
+	 * @return true si el formato es el correcto
+	 * 
+	 *         AUTOR: Dácil Marco
 	 */
 	public static boolean esFechaValida(String fecha, String format) {
 		boolean fechaCorrecta = false;
@@ -341,7 +356,9 @@ public class Validator {
 	 * con lasnormas de contraseña
 	 * 
 	 * @param password string con la contraseña introducida
-	 * @return true si cumple con las especificaciones AUTOR: Dácil Marco
+	 * @return true si cumple con las especificaciones
+	 * 
+	 *         AUTOR: Dácil Marco
 	 */
 	public static boolean esPasswordValida(String password) {
 		boolean passwordCorrecta = Pattern.matches(PASSWORD_PATTERN, password);
@@ -351,8 +368,10 @@ public class Validator {
 	/**
 	 * Comprueba que una cadena no introducen en null o vacia
 	 * 
+	 * AUTOR: Dácil Marco
+	 * 
 	 * @param prueba
-	 * @return AUTOR: Dácil Marco
+	 * @return
 	 */
 	public static boolean isVacio(String prueba) {
 		boolean isVacio = false;
@@ -360,6 +379,19 @@ public class Validator {
 			isVacio = true;
 		}
 		return isVacio;
+	}
+
+	/**
+	 * Comprobamos que el id de producto coincida con el pattern
+	 * 
+	 * AUTOR: Dácil Marco
+	 * 
+	 * @param idProducto
+	 * @return
+	 */
+	public static boolean compruebaCodigoProd(String idProducto) {
+		boolean idCorrecto = Pattern.matches(ID_PRODUCTO, idProducto);
+		return idCorrecto;
 	}
 
 }

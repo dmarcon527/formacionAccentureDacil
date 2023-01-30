@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class ValidatorTest {
 
-	final String ALFANUMERIC = "28022025";
+	final String ALFANUMERIC = "28022025112";
 	final String ALFANUMERIC2 = "AAss";
 	final String ALFANUMERIC3 = "AAss123";
 	final String ALFANUMERIC4 = "123AAss";
@@ -58,10 +58,10 @@ class ValidatorTest {
 	final String TEXTO_MAX2 = "qwertyuioqaqswswxewdewdewdwedwedew";
 
 	final LocalDate FECHA_INICIAL = LocalDate.now();
-	
+
 	final LocalDate FECHA_MIN = LocalDate.of(2023, 12, 31);
 	final LocalDate FECHA_MIN1 = LocalDate.of(2022, 12, 31);
-	
+
 	final LocalDate FECHA_MAX = LocalDate.of(2022, 12, 31);
 	final LocalDate FECHA_MAX1 = LocalDate.of(2023, 12, 31);
 
@@ -83,6 +83,14 @@ class ValidatorTest {
 	final String VACIO1 = null;
 	final String VACIO2 = " ";
 	final String VACIO3 = "asas";
+
+	final String ID_PRODUCTO = "AN123";
+	final String ID_PRODUCTO1 = "ZN158";
+	final String ID_PRODUCTO_FALSE = "A123";
+	final String ID_PRODUCTO_FALSE1 = "AN12";
+	final String ID_PRODUCTO_FALSE2 = "123AB";
+	final String ID_PRODUCTO_FALSE3 = "12311";
+	final String ID_PRODUCTO_FALSE4 = "ANBGT";
 
 	@Test
 	void testIsAlfanumeric() {
@@ -258,7 +266,7 @@ class ValidatorTest {
 	void testValDateMin() {
 		assertTrue(Validator.valDateMin(FECHA_MIN, FECHA_INICIAL));
 	}
-	
+
 	@Test
 	void testValDateMin1() {
 		assertFalse(Validator.valDateMin(FECHA_MIN1, FECHA_INICIAL));
@@ -268,7 +276,7 @@ class ValidatorTest {
 	void testValDateMax() {
 		assertTrue(Validator.valDateMax(FECHA_MAX, FECHA_INICIAL));
 	}
-	
+
 	@Test
 	void testValDateMax1() {
 		assertFalse(Validator.valDateMax(FECHA_MAX1, FECHA_INICIAL));
@@ -352,6 +360,41 @@ class ValidatorTest {
 	@Test
 	void testIsVacio3() {
 		assertFalse(Validator.isVacio(VACIO3));
+	}
+
+	@Test
+	void testcompruebaCodigoProd() {
+		assertTrue(Validator.compruebaCodigoProd(ID_PRODUCTO));
+	}
+
+	@Test
+	void testcompruebaCodigoProd1() {
+		assertTrue(Validator.compruebaCodigoProd(ID_PRODUCTO1));
+	}
+
+	@Test
+	void testcompruebaCodigoProd_FALSE() {
+		assertFalse(Validator.compruebaCodigoProd(ID_PRODUCTO_FALSE));
+	}
+
+	@Test
+	void testcompruebaCodigoProd_FALSE1() {
+		assertFalse(Validator.compruebaCodigoProd(ID_PRODUCTO_FALSE1));
+	}
+
+	@Test
+	void testcompruebaCodigoProd_FALSE2() {
+		assertFalse(Validator.compruebaCodigoProd(ID_PRODUCTO_FALSE2));
+	}
+
+	@Test
+	void testcompruebaCodigoProd_FALSE3() {
+		assertFalse(Validator.compruebaCodigoProd(ID_PRODUCTO_FALSE3));
+	}
+
+	@Test
+	void testcompruebaCodigoProd_FALSE4() {
+		assertFalse(Validator.compruebaCodigoProd(ID_PRODUCTO_FALSE4));
 	}
 
 }
