@@ -14,7 +14,7 @@ public class Cuenta {
 	private String mTitular;
 
 	public Cuenta(String mNumero, String mTitular) throws LongitudTexto {
-		boolean textoCorrecto = Filtros.longitudTexto(mTitular);
+		boolean textoCorrecto = Filtros.longitudTexto(mTitular,15, 20);
 		if (textoCorrecto == true) {
 			this.mNumero = mNumero;
 			this.mTitular = mTitular;
