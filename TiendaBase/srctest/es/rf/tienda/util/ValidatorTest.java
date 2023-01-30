@@ -266,7 +266,7 @@ class ValidatorTest {
 
 	@Test
 	void testValDateMax() {
-		assertFalse(Validator.valDateMax(FECHA_MAX, FECHA_INICIAL));
+		assertTrue(Validator.valDateMax(FECHA_MAX, FECHA_INICIAL));
 	}
 	
 	@Test

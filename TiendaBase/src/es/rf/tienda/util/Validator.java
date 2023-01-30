@@ -38,11 +38,6 @@ public class Validator {
 	private final static String PHONE_PATTERN = "[\\d ]{10,20}";
 
 	/**
-	 * Orden de las letras con las cuales se comprobar la validez del DNI
-	 */
-	private final static String LETRA_DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
-
-	/**
 	 * Longitud que debe tener todo DNI pasado a la aplicación.
 	 */
 	private final static int LONGITUD_DNI = 12;
@@ -285,8 +280,7 @@ public class Validator {
 
 	public static boolean valDateMin(LocalDate fecha, LocalDate min) {
 		boolean fechaCorrecta = false;
-		if (fecha.getMonthValue() >= min.getMonthValue() && fecha.getYear() >= min.getYear()
-				&& fecha.getDayOfMonth() >= min.getDayOfMonth()) {
+		if (fecha.isAfter(min)) {
 			fechaCorrecta = true;
 		}
 		return fechaCorrecta;
@@ -301,8 +295,7 @@ public class Validator {
 	 */
 	public static boolean valDateMax(LocalDate fecha, LocalDate max) {
 		boolean fechaCorrecta = false;
-		if (fecha.getMonthValue() <= max.getMonthValue() && fecha.getYear() <= max.getYear()
-				&& max.getDayOfMonth() <= max.getDayOfMonth()) {
+		if (fecha.isBefore(max)) {
 			fechaCorrecta = true;
 		}
 		return fechaCorrecta;
