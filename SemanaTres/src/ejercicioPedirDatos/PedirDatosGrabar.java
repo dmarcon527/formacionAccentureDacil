@@ -12,18 +12,24 @@ public class PedirDatosGrabar {
 		FileWriter fichero = new FileWriter("C:\\AreaTrabajo\\cursowk\\NombrePersona.txt");
 		PrintWriter printWriter = new PrintWriter(fichero);
 		Scanner teclado = new Scanner(System.in);
-		String nombreCompleto = new String();
+		String nombre, apellido; 
 		
-		System.out.println("Introduce tu nombre completo");
-		nombreCompleto = teclado.nextLine();
-	System.out.println("Nombre " + nombreCompleto);
-		while (teclado.hasNext()) {
-				printWriter.println("nombre " + teclado);
-			teclado.hasNext(); 
-			printWriter.println("Appellido " + teclado);
+		System.out.println("Introduce tu nombre");
+		nombre = teclado.nextLine();
+		
+		System.out.println("Introduce tu apellido");
+		apellido = teclado.nextLine();
+		
+	System.out.println("Nombre " + nombre +" Apellido " + nombre);
+		for (int i =0; i<=1; i++) {
+				if(i==0) {
+				printWriter.println("NOMBRE: " + nombre);
+				}else {
+					printWriter.println("APELLIDO: " + apellido);
+				}
 		}
 
-	
+		fichero.close();
 
 	}
 
