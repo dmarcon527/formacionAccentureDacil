@@ -1,5 +1,6 @@
 package juego;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -54,11 +55,13 @@ public class AdivinaNumero {
 		System.out.println("Me toca: ¿ el número que estás pensado es " + adivinarMaquina + " ?");
 		System.out.println("Introduce:\n" + "1- Si tiene que ser mayor\n" + "2- si es tiene que ser menor\n" + "3- si acerté");
 		int respuesta = teclado.nextInt();
-		int almacen = adivinarMaquina;
+		int almacen =  adivinarMaquina;
 		switch (respuesta) {
 		case 1:
+			adivinarMaquina = (int) (Math.random() * almacen+adivinarMaquina);
+			break; 
 		case 2:
-			adivinarMaquina = (int) (Math.random() * almacen);
+			adivinarMaquina = (int) (Math.random() * almacen-1);
 			break;
 		case 3:
 			maquinaAcerto = true;
