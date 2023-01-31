@@ -22,20 +22,6 @@ public class AdivinaNumero {
 	static boolean numeroCorrecto;
 
 	public static void main(String[] args) {
-		boolean repetirPregunta = false;
-		do {
-			try {
-
-				System.out.println("Introduce el número que tiene que adivinar la máquina");
-				numAdivinarMaquina = teclado.nextInt();
-				repetirPregunta = true;
-
-			} catch (Exception e) {
-				System.err.println(e);
-				// limpio el scanner
-				teclado.nextLine();
-			}
-		} while (repetirPregunta == false);
 
 		do {
 			try {
@@ -66,13 +52,13 @@ public class AdivinaNumero {
 
 	static boolean maquina() {
 		System.out.println("Me toca: ¿ el número que estás pensado es " + adivinarMaquina + " ?");
-		System.out.println(
-				"Introduce: 1- Si tiene que ser mayor\n" + " 2- si es tiene que ser menor\n" + " 3- si acerté");
+		System.out.println("Introduce:\n" + "1- Si tiene que ser mayor\n" + "2- si es tiene que ser menor\n" + "3- si acerté");
 		int respuesta = teclado.nextInt();
+		int almacen = adivinarMaquina;
 		switch (respuesta) {
 		case 1:
 		case 2:
-			adivinarMaquina = (int) (Math.random() * numAdivinarMaquina);
+			adivinarMaquina = (int) (Math.random() * almacen);
 			break;
 		case 3:
 			maquinaAcerto = true;
@@ -86,9 +72,9 @@ public class AdivinaNumero {
 		numero = teclado.nextInt();
 
 		if (numero < adivinar) {
-			System.out.println("Tiene que ser mayor");
+			System.out.println("Tiene que ser mayor\n");
 		} else if (numero > adivinar) {
-			System.out.println("Tiene que ser menor");
+			System.out.println("Tiene que ser menor\n");
 		} else if (numero == adivinar) {
 			numeroCorrecto = true;
 		}
