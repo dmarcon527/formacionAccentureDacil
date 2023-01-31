@@ -22,6 +22,7 @@ public class LeerFicheroCreado {
 
 			leerFichero.useDelimiter("\n");
 			while (leerFichero.hasNext()) {
+				//splitted = leerFichero.split("");
 				String cadena = leerFichero.next();
 				System.out.println(cadena + " ");
 			}
