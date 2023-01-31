@@ -1,2 +1,2 @@
-NOMBRE: Dacil
-APELLIDO: Marco
+NOMBRE=Dácil 
+APELLIDO=Marco

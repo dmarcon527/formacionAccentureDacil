@@ -30,11 +30,11 @@ public class PedirDatosGrabar {
 		System.out.println("Introduce tu apellido");
 		apellido = teclado.nextLine();
 
-		System.out.println("Nombre " + nombre + " Apellido " + nombre);
+		System.out.println("Nombre " + nombre + " Apellido " + apellido);
 
-		printWriter.println("NOMBRE= " + nombre);
+		printWriter.println("NOMBRE=" + nombre);
 
-		printWriter.println("APELLIDO= " + apellido);
+		printWriter.println("APELLIDO=" + apellido);
 
 		fichero.close();
 

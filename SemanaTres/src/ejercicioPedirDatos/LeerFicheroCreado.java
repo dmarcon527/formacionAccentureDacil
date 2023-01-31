@@ -20,11 +20,11 @@ public class LeerFicheroCreado {
 		File fichero = new File(carpeta + archivo);
 		try (Scanner leerFichero = new Scanner(fichero)) {
 
-			leerFichero.useDelimiter("\n");
-			while (leerFichero.hasNext()) {
-				//splitted = leerFichero.split("");
-				String cadena = leerFichero.next();
-				System.out.println(cadena + " ");
+			if (leerFichero != null) {
+				while (leerFichero.hasNext()) {
+					String cadena = leerFichero.next();
+					System.out.println(cadena + " ");
+				}
 			}
 			leerFichero.close();
 		} catch (Exception e) {
