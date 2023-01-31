@@ -14,9 +14,11 @@ public class GeneraNumero implements Runnable {
 		this.buf = buf;
 	}
 
+	/**
+	 * Generamos un número aleatorio y se lo asignamos al Buffer
+	 */
 	@Override
 	public void run() {
-		// genero un número aleatorio
 		Random rn = new Random();
 		while (true) {
 			buf.setNumero(rn.nextInt());

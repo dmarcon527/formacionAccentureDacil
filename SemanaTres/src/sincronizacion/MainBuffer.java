@@ -1,11 +1,19 @@
 package sincronizacion;
 
-import java.security.GeneralSecurityException;
-
+/**
+ * 
+ * @author Dácil Marco Contreras
+ *
+ */
 public class MainBuffer {
 
 	static Buffer buf;
 
+	/**
+	 * Llamamos a los métodos del Buffer esperando una respuesta asincrona
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		buf = new Buffer();
 		buf.setDisponible(false);
