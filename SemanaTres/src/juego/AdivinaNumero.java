@@ -17,44 +17,38 @@ public class AdivinaNumero {
 	static int adivinarMaquina = (int) (Math.random() * 1000);
 	static int numAdivinarMaquina;
 	static boolean maquinaAcerto;
+	static int numero;
+	static final int adivinar = (int) (Math.random() * 100);
+	static boolean numeroCorrecto;
 
 	public static void main(String[] args) {
+		boolean repetirPregunta = false;
+		do {
+			try {
 
-		boolean numeroCorrecto = false;
-		int adivinar = (int) (Math.random() * 100);
+				System.out.println("Introduce el número que tiene que adivinar la máquina");
+				numAdivinarMaquina = teclado.nextInt();
+				repetirPregunta = true;
 
-		try {
-
-			System.out.println("Introduce el número que tiene que adivinar la máquina");
-			numAdivinarMaquina = teclado.nextInt();
-
-		} catch (Exception e) {
-			System.err.println(e);
-			// limpio el scanner
-			teclado.nextLine();
-		}
+			} catch (Exception e) {
+				System.err.println(e);
+				// limpio el scanner
+				teclado.nextLine();
+			}
+		} while (repetirPregunta == false);
 
 		do {
 			try {
-				int numero = 0;
-				if (numeroCorrecto == false) {
-					System.out.println("Te toca adivinar: introduce un número");
-					numero = teclado.nextInt();
 
-					if (numero < adivinar) {
-						System.out.println("Tiene que ser mayor");
-					} else if (numero > adivinar) {
-						System.out.println("Tiene que ser menor");
-					}
+				if (numeroCorrecto == false) {
+					usuario();
+					teclado.nextLine();
 				}
 				if (maquinaAcerto == false) {
 					maquina();
+					teclado.nextLine();
 				}
 
-				if (numero == adivinar) {
-					numeroCorrecto = true;
-
-				}
 			} catch (Exception e) {
 				System.err.println(e);
 				// limpio el scanner
@@ -85,6 +79,21 @@ public class AdivinaNumero {
 			break;
 		}
 		return maquinaAcerto;
+	}
+
+	static boolean usuario() {
+		System.out.println("Te toca adivinar: introduce un número");
+		numero = teclado.nextInt();
+
+		if (numero < adivinar) {
+			System.out.println("Tiene que ser mayor");
+		} else if (numero > adivinar) {
+			System.out.println("Tiene que ser menor");
+		} else if (numero == adivinar) {
+			numeroCorrecto = true;
+		}
+
+		return numeroCorrecto;
 	}
 
 }
