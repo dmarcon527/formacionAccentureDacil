@@ -7,10 +7,10 @@ public class Jugador {
 
 	private String nombre;
 	private int edad;
-	private Set<Carta> manocartas;
+	private Set<Carta> manocartas= new HashSet<>();
 
 	public Jugador() {
-		manocartas = new HashSet<>();
+		
 	}
 
 	public Set<Carta> getBaraja() {
