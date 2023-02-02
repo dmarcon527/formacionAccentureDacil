@@ -40,11 +40,12 @@ public class MainBaraja {
 	static void repartirCartas() {
 		Paquete paquete = new Paquete();
 		int cartasRepartidas = 0;
-		while (cartasRepartidas < 6) {
+		while (cartasRepartidas < 5) {
 			for (int i = 0; i < partida.size(); i++) {
 				paquete.repartirCartasJugador(partida.get(i));
-				cartasRepartidas++;
+				
 			}
+			cartasRepartidas++;
 		}
 	}
 
