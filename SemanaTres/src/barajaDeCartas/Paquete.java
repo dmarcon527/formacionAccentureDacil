@@ -11,8 +11,6 @@ public class Paquete {
 	public Paquete() {
 		cargarBaraja();
 	}
-	
-	
 
 	public Set<Carta> getBaraja() {
 		return baraja;
@@ -33,13 +31,24 @@ public class Paquete {
 			}
 		}
 	}
-	
+
+	/**
+	 * le asigno cartas a un jugador
+	 * 
+	 * @param jugador
+	 */
 	public void repartirCartasJugador(Jugador jugador) {
+		int contador = 0;
 		for (Carta carta : baraja) {
-			for(int i =0; i<=4; i++) {
-				jugador.recibirCarta(carta);
-			}		
+			if (contador < 5) {
+				Carta cartaJugador = new Carta();
+				cartaJugador.setNumero(carta.getNumero());
+				cartaJugador.setPalo(carta.getPalo());
+				jugador.recibirCarta(cartaJugador);
+				contador++;
+			}
 		}
 		System.out.println(jugador.toString());
+
 	}
 }

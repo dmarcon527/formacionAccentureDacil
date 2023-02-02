@@ -7,10 +7,10 @@ public class Jugador {
 
 	private String nombre;
 	private int edad;
-	private Set<Carta> manocartas= new HashSet<>();
+	private Set<Carta> manocartas = new HashSet<>();
 
 	public Jugador() {
-		
+
 	}
 
 	public Set<Carta> getBaraja() {
@@ -41,7 +41,5 @@ public class Jugador {
 	public String toString() {
 		return "Jugador [nombre=" + nombre + ", edad=" + edad + ", manocartas=" + manocartas + "]";
 	}
-	
-	
 
 }
