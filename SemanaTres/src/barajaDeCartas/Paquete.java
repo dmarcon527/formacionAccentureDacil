@@ -1,6 +1,7 @@
 package barajaDeCartas;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Paquete {
@@ -38,17 +39,12 @@ public class Paquete {
 	 * @param jugador
 	 */
 	public void repartirCartasJugador(Jugador jugador) {
-		int contador = 0;
-		for (Carta carta : baraja) {
-			if (contador < 5) {
-				Carta cartaJugador = new Carta();
-				cartaJugador.setNumero(carta.getNumero());
-				cartaJugador.setPalo(carta.getPalo());
-				jugador.recibirCarta(cartaJugador);
-				contador++;
-			}
-		}
-		System.out.println(jugador.toString());
+
+		Iterator<Carta> it = baraja.iterator();
+		Carta carta = it.next();
+		jugador.recibirCarta(carta);
+		it.remove();
 
 	}
+
 }
