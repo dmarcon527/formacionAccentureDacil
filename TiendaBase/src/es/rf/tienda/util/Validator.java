@@ -37,10 +37,6 @@ public class Validator {
 	 */
 	private final static String PHONE_PATTERN = "[\\d ]{10,20}";
 
-	/**
-	 * Longitud que debe tener todo DNI pasado a la aplicación.
-	 */
-	private final static int LONGITUD_DNI = 12;
 
 	/**
 	 * Pattern id del producto
