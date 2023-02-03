@@ -264,22 +264,22 @@ class ValidatorTest {
 
 	@Test
 	void testValDateMin() {
-		assertTrue(Validator.valDateMin(FECHA_MIN, FECHA_INICIAL));
+		assertTrue(Validator.valDateMin(FECHA_INICIAL,FECHA_MIN));
 	}
 
 	@Test
 	void testValDateMin1() {
-		assertFalse(Validator.valDateMin(FECHA_MIN1, FECHA_INICIAL));
+		assertFalse(Validator.valDateMin(FECHA_INICIAL,FECHA_MIN1));
 	}
 
 	@Test
 	void testValDateMax() {
-		assertTrue(Validator.valDateMax(FECHA_MAX, FECHA_INICIAL));
+		assertTrue(Validator.valDateMax(FECHA_INICIAL,FECHA_MAX));
 	}
 
 	@Test
 	void testValDateMax1() {
-		assertFalse(Validator.valDateMax(FECHA_MAX1, FECHA_INICIAL));
+		assertFalse(Validator.valDateMax(FECHA_INICIAL,FECHA_MAX1));
 	}
 
 	@Test

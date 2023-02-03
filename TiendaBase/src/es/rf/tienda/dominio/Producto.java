@@ -44,7 +44,6 @@ public class Producto {
 		if (longitud == true && alfaNumeric == true) {
 			this.id_producto = id_producto.toUpperCase();
 		}
-
 	}
 
 	public String getPro_descripcion() {
@@ -64,7 +63,11 @@ public class Producto {
 	}
 
 	public void setPro_desLarga(String pro_desLarga) {
-		this.pro_desLarga = pro_desLarga;
+		boolean longitud = Validator.cumpleLongitud(pro_desLarga, 5, 2000);
+		boolean alfaNumeric = Validator.isAlfanumeric(pro_desLarga);
+		if (longitud == true && alfaNumeric == true) {
+			this.pro_desLarga = pro_desLarga;
+		}
 	}
 
 	public double getPro_precio() {
@@ -72,7 +75,10 @@ public class Producto {
 	}
 
 	public void setPro_precio(double pro_precio) {
-		this.pro_precio = pro_precio;
+		boolean rango = Validator.cumpleRango(pro_precio, 0, 101);
+		if (rango == true) {
+			this.pro_precio = pro_precio;
+		}
 	}
 
 	public int getPro_stock() {
@@ -88,7 +94,10 @@ public class Producto {
 	}
 
 	public void setPro_fecRepos(LocalDate pro_fecRepos) {
-		this.pro_fecRepos = pro_fecRepos;
+		boolean fechaCorrecta = Validator.valDateMax(pro_fecRepos, LocalDate.now());
+		if (fechaCorrecta == true) {
+			this.pro_fecRepos = pro_fecRepos;
+		}
 	}
 
 	public LocalDate getPro_fecActi() {
@@ -96,7 +105,11 @@ public class Producto {
 	}
 
 	public void setPro_fecActi(LocalDate pro_fecActi) {
-		this.pro_fecActi = pro_fecActi;
+		boolean fechaCorrecta = Validator.valDateMax(pro_fecActi, LocalDate.now());
+		if (fechaCorrecta == true) {
+			this.pro_fecActi = pro_fecActi;
+		}
+
 	}
 
 	public LocalDate getPro_fecDesacti() {
@@ -104,7 +117,16 @@ public class Producto {
 	}
 
 	public void setPro_fecDesacti(LocalDate pro_fecDesacti) {
-		this.pro_fecDesacti = pro_fecDesacti;
+		boolean fechaMax = Validator.valDateMax(pro_fecDesacti, LocalDate.now());
+		boolean fechaMaxAct = false;
+		if (pro_fecActi != null) {
+			fechaMaxAct = Validator.valDateMax(pro_fecDesacti, pro_fecActi);
+		}
+		if (fechaMax == true && fechaMaxAct == true) {
+			this.pro_fecDesacti = pro_fecDesacti;
+		} else if (fechaMax == true) {
+			this.pro_fecDesacti = pro_fecDesacti;
+		}
 	}
 
 	public String getPro_uniVenta() {
@@ -112,7 +134,11 @@ public class Producto {
 	}
 
 	public void setPro_uniVenta(String pro_uniVenta) {
-		this.pro_uniVenta = pro_uniVenta;
+		boolean longitud = Validator.cumpleLongitud(pro_uniVenta, 1, 10);
+		boolean alfaNumeric = Validator.isAlfanumeric(pro_uniVenta);
+		if (longitud == true && alfaNumeric == true) {
+			this.pro_uniVenta = pro_uniVenta;
+		}
 	}
 
 	public double getPro_cantXUniVenta() {
@@ -128,7 +154,10 @@ public class Producto {
 	}
 
 	public void setPro_uniUltNivel(String pro_uniUltNivel) {
-		this.pro_uniUltNivel = pro_uniUltNivel;
+		boolean alfaNumeric = Validator.isAlfanumeric(pro_uniUltNivel);
+		if (alfaNumeric == true) {
+			this.pro_uniUltNivel = pro_uniUltNivel;
+		}
 	}
 
 	public int getId_pais() {
@@ -144,7 +173,11 @@ public class Producto {
 	}
 
 	public void setPro_usoRecomendado(String pro_usoRecomendado) {
-		this.pro_usoRecomendado = pro_usoRecomendado;
+		boolean alfaNumeric = Validator.isAlfanumeric(pro_usoRecomendado);
+		boolean longitud = Validator.cumpleLongitud(pro_usoRecomendado, 0, 2000);
+		if (alfaNumeric == true && longitud == true) {
+			this.pro_usoRecomendado = pro_usoRecomendado;
+		}
 	}
 
 	public int getId_categoria() {
@@ -184,7 +217,13 @@ public class Producto {
 	}
 
 	public void setPro_stat(char pro_stat) {
-		this.pro_stat = pro_stat;
+		boolean alfaNumeric = Validator.isAlfanumeric(pro_stat + "");
+		boolean longitud = Validator.cumpleLongitud(pro_stat + "", 1, 1);
+		if (alfaNumeric == true && longitud == true) {
+			if (pro_stat == 'A' || pro_stat == 'B') {
+				this.pro_stat = pro_stat;
+			}
+		}
 	}
 
 	@Override
