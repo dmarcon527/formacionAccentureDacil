@@ -12,6 +12,7 @@ class ValidatorTest {
 	final String ALFANUMERIC2 = "AAss";
 	final String ALFANUMERIC3 = "AAss123";
 	final String ALFANUMERIC4 = "123AAss";
+	final String ALFANUMERIC5 = "123A Ass";
 	final String ALFANUMERIC_FALSE = "123A+++Ass";
 	final String ALFANUMERIC_FALSE1 = "++::";
 
@@ -112,6 +113,11 @@ class ValidatorTest {
 		assertTrue(Validator.isAlfanumeric(ALFANUMERIC4));
 	}
 
+	@Test
+	void testIsAlfanumeric5() {
+		assertTrue(Validator.isAlfanumeric(ALFANUMERIC5));
+	}
+	
 	@Test
 	void testIsAlfanumeric_FALSE() {
 		assertFalse(Validator.isAlfanumeric(ALFANUMERIC_FALSE));
@@ -271,6 +277,11 @@ class ValidatorTest {
 	void testValDateMin1() {
 		assertFalse(Validator.valDateMin(FECHA_INICIAL,FECHA_MIN1));
 	}
+	
+	@Test
+	void testValDateMin2() {
+		assertTrue(Validator.valDateMin(FECHA_MIN1,FECHA_MIN1));
+	}
 
 	@Test
 	void testValDateMax() {
@@ -280,6 +291,11 @@ class ValidatorTest {
 	@Test
 	void testValDateMax1() {
 		assertFalse(Validator.valDateMax(FECHA_INICIAL,FECHA_MAX1));
+	}
+	
+	@Test
+	void testValDateMax2() {
+		assertTrue(Validator.valDateMax(FECHA_MAX1,FECHA_MAX1));
 	}
 
 	@Test

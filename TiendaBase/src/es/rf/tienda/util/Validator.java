@@ -284,7 +284,8 @@ public class Validator {
 
 	public static boolean valDateMin(LocalDate fecha, LocalDate min) {
 		boolean fechaCorrecta = false;
-		if (min.isAfter(fecha)) {
+		if (min.isAfter(fecha) || min.getDayOfYear() == fecha.getDayOfYear()
+				&& min.getDayOfWeek() == fecha.getDayOfWeek() && min.getYear() == fecha.getYear()) {
 			fechaCorrecta = true;
 		}
 		return fechaCorrecta;
@@ -301,7 +302,8 @@ public class Validator {
 	 */
 	public static boolean valDateMax(LocalDate fecha, LocalDate max) {
 		boolean fechaCorrecta = false;
-		if (max.isBefore(fecha)) {
+		if (max.isBefore(fecha) || max.getDayOfYear() == fecha.getDayOfYear()
+				&& max.getDayOfWeek() == fecha.getDayOfWeek() && max.getYear() == fecha.getYear()) {
 			fechaCorrecta = true;
 		}
 		return fechaCorrecta;
