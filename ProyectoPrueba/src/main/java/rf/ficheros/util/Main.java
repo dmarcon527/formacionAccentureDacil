@@ -14,10 +14,18 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		CountryController cc = new CountryController();
+		System.out.println("-------------- Leer Todos --------------");
 		List<Country> listCon = cc.leerTodos();
 		listarCtr(listCon);
-		System.out.println("--------------");
+		System.out.println("-------------- Leer Uno --------------");
 		System.out.println(cc.leerUno("AR"));
+		
+		System.out.println("-------------- Insertar Country --------------");
+		Country country = new Country(); 
+		country.setCountry_id("ES");
+		country.setCountry_name("España");
+		country.setRegion_id("5");
+
 
 	}
 
