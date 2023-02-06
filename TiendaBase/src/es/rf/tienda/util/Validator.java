@@ -37,7 +37,6 @@ public class Validator {
 	 */
 	private final static String PHONE_PATTERN = "[\\d ]{10,20}";
 
-
 	/**
 	 * Pattern id del producto
 	 */
