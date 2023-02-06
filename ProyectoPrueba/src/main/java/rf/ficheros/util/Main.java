@@ -19,13 +19,12 @@ public class Main {
 		listarCtr(listCon);
 		System.out.println("-------------- Leer Uno --------------");
 		System.out.println(cc.leerUno("AR"));
-		
+
 		System.out.println("-------------- Insertar Country --------------");
-		Country country = new Country(); 
+		Country country = new Country();
 		country.setCountry_id("ES");
 		country.setCountry_name("España");
 		country.setRegion_id("5");
-
 
 	}
 

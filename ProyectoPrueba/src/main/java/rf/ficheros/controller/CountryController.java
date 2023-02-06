@@ -18,7 +18,6 @@ public class CountryController {
 	public CountryController() throws SQLException {
 		cDao = new CountryDao();
 	}
-	
 
 	public Country leerUno(String country_id) throws Exception {
 		return cDao.leerUno(country_id);
@@ -27,8 +26,19 @@ public class CountryController {
 	public List<Country> leerTodos() throws Exception {
 		return cDao.leerTodos();
 	}
-	
-	
-	
+
+	public int actualizar(Country country) throws Exception {
+		return cDao.actualizar(country);
+	}
+
+	public int borrar(Country country) throws Exception {
+		return cDao.delete(country);
+
+	}
+
+	public int borrar(String country_id) throws Exception {
+		return cDao.delete(country_id);
+
+	}
 
 }

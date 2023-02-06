@@ -20,8 +20,7 @@ public class OracleJDBC {
 	public static String DATABASE = "";
 	public static String USUARIO = "hr";
 	public static String PASSWORD = "hr";
-	public final static String SQL_LEER_TODOS = "select * from employees";
-	;
+	public final static String SQL_LEER_TODOS = "select * from employees";;
 
 	/**
 	 * Conectamos con la BBDD, realizamos consulta SQL y mostramos
@@ -51,11 +50,11 @@ public class OracleJDBC {
 			return null;
 		}
 		conn.setAutoCommit(false);
-		return conn; 
-		
+		return conn;
+
 	}
-	
-	public  void cerrar() throws SQLException {
+
+	public void cerrar() throws SQLException {
 
 		if (conn != null) {
 			System.out.println("Conectado");
@@ -83,9 +82,5 @@ public class OracleJDBC {
 			}
 		}
 	}
-
-	
-
-	
 
 }

@@ -2,13 +2,12 @@ package rf.ficheros.util;
 
 public class MontadorSQL {
 
-	public static String montaSql(String nombreCampo,String nombre, String caracterSeparacion) {
+	public static String montaSql(String nombreCampo, String nombre, String caracterSeparacion) {
 		String cadena = nombreCampo + " = " + "'" + nombre + "'" + caracterSeparacion;
 		return cadena;
 	}
 
-
-	public static String montaSql(String nombre1, String nombreCampo1, String nombreCampo2, double valor,
+	public static String montaSql(String nombreCampo1, String nombre1, String nombreCampo2, double valor,
 			String caracterSeparacion) {
 		String cadena = nombreCampo1 + " = " + "'" + nombre1 + "'" + caracterSeparacion + nombreCampo2 + " = " + valor;
 		return cadena;

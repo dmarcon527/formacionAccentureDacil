@@ -24,10 +24,10 @@ public class CountryDao implements CountryDaoI {
 	private final static String SQL_LEER_TODOS_COUNTRY = "select * from countries";
 	private final static String SQL_LEER_COUNTRY_POR_ID = "select * from countries where country_id=";
 	private final static String SQL_LEER_COUNTRY_POR_ID2 = "select * from countries where country_id= ?";
-	private final static String SQL_UPDATE_COUNTRY = "UPDATE countries set country_name= ?  where country_id= ?";
+	private final static String SQL_UPDATE_COUNTRY = "UPDATE countries set country_id=? country_name= ? ,region_id ?  where country_id= ?";
 	private final static String SQL_DELETE_COUNTRY = "Delete countries where country_id= ?";
-	private final static String SQL_INSERT_COUNTRY ="Insert into countries (country_id, country_name, region_id ) values (?, ?, ?)"; 
-	
+	private final static String SQL_INSERT_COUNTRY = "Insert into countries (country_id, country_name, region_id ) values (?, ?, ?)";
+
 	/**
 	 * Creamos la conexion a la bbdd
 	 * 
@@ -92,13 +92,15 @@ public class CountryDao implements CountryDaoI {
 		try {
 
 			PreparedStatement ps = conn.prepareStatement(SQL_UPDATE_COUNTRY);
-			ps.setString(1, country.getCountry_name());
-			ps.setString(2, country.getCountry_id());
+			ps.setString(1, country.getCountry_id());
+			ps.setString(2, country.getCountry_name());
+			ps.setString(3, country.getRegion_id());
+			ps.setString(4, country.getCountry_id());
 			rs = ps.executeQuery();
 
 			rs.next();
 			int total = rs.getRow();
-			System.out.println(total+ " fila actualizada.");
+			System.out.println(total + " fila actualizada.");
 			return total;
 
 		} catch (SQLException e) {
@@ -118,7 +120,7 @@ public class CountryDao implements CountryDaoI {
 
 			rs.next();
 			int total = rs.getRow();
-			System.out.println(total+ " fila eliminada.");
+			System.out.println(total + " fila eliminada.");
 			return total;
 
 		} catch (SQLException e) {
@@ -138,7 +140,7 @@ public class CountryDao implements CountryDaoI {
 
 			rs.next();
 			int total = rs.getRow();
-			System.out.println(total+ " fila eliminada.");
+			System.out.println(total + " fila eliminada.");
 			return total;
 
 		} catch (SQLException e) {
