@@ -9,7 +9,7 @@ public class DomainException extends Exception {
 
 	public DomainException(String msj) {
 		System.out.println(msj);
-		//super("Domain: "+msj); 
+		
 	}
 
 }

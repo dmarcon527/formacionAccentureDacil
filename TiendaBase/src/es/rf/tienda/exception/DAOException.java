@@ -9,7 +9,6 @@ public class DAOException extends Exception {
 	
 	public DAOException(String msj) {
 		System.out.println(msj);
-		//super("DAO: "+msj); 
 	}
 	
 }
