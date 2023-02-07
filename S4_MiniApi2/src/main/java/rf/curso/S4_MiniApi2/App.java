@@ -5,10 +5,6 @@ import java.util.List;
 import rf.curso.S4_MiniApi2.controller.CountryController;
 import rf.curso.S4_MiniApi2.modelos.Country;
 
-/**
- * Hello world!
- *
- */
 public class App {
 	public static void main(String[] args) throws Exception {
 		CountryController cc = new CountryController();
