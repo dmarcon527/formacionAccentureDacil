@@ -4,37 +4,44 @@ import es.rf.tienda.util.Validator;
 
 /**
  * 
- * Nombre		Categoria
- * Descripcion	Lista de categorías
- * @author 		Dácil Marco
- * @version		13 de abr. de 2016
+ * Nombre Categoria Descripcion Lista de categorías
+ * 
+ * @author Dácil Marco
+ * @version 7 de feb. de 2023
  *
  */
 public class Categoria {
-	
-	private int id_categoria;			//identificador categoria
-	
-	private String cat_nombre;			//nombre de la categoria
-	
-	private String cat_descripcion;		//descripcion de la categoria
-	
-	
-	public Categoria(){}
-	
-	
-  public boolean isValid(){	
-		return !Validator.isVacio(cat_nombre) &&
-				id_categoria > 0;
+
+	private static final int MIN = 0;
+	private static final int MIN_LOG = 5;
+	private static final int MAX_LOG = 50;
+	private static final int MAX_LOG1 = 200;
+
+	private int id_categoria; // identificador categoria
+	private String cat_nombre; // nombre de la categoria
+	private String cat_descripcion; // descripcion de la categoria
+
+	public Categoria() {
 	}
-	
+
+	/**
+	 * Comprobamos que los campos obligatorios no estén vacios
+	 * 
+	 * @return
+	 */
+	public boolean isValid() {
+		return !Validator.isVacio(cat_nombre) && id_categoria > MIN;
+	}
+
 	/**
 	 * Getter para identificador de categoria
+	 * 
 	 * @return Integer con el id de la categoria
 	 */
 	public int getId_categoria() {
 		return id_categoria;
 	}
-	
+
 	/**
 	 * Setter para identificador de categoria
 	 * 
@@ -42,39 +49,48 @@ public class Categoria {
 	public void setId_categoria(int id_categoria) {
 		this.id_categoria = id_categoria;
 	}
-	
+
 	/**
 	 * Getter para el nombre de categoria
+	 * 
 	 * @return cadena con el nombre de la categoria
 	 */
 	public String getCat_nombre() {
 		return cat_nombre;
 	}
-	
+
 	/**
 	 * Setter para el nombre de categoria
 	 * 
 	 */
 	public void setCat_nombre(String cat_nombre) {
-		this.cat_nombre = cat_nombre;
+		boolean longCorrecta = Validator.cumpleLongitud(cat_nombre, MIN_LOG, MAX_LOG);
+		boolean isAlfaNum = Validator.isAlfanumeric(cat_nombre);
+		if (longCorrecta == true && isAlfaNum == true) {
+			this.cat_nombre = cat_nombre;
+		}
 	}
-	
+
 	/**
 	 * Getter para la descripcion de categoria
+	 * 
 	 * @return cadena con la descripcion de la categoria
 	 */
 	public String getCat_descripcion() {
 		return cat_descripcion;
 	}
-	
+
 	/**
 	 * setter para la descripcion de categoria
 	 * 
 	 */
 	public void setCat_descripcion(String cat_descripcion) {
-		this.cat_descripcion = cat_descripcion;
+		boolean longCorrecta = Validator.cumpleLongitudMax(cat_descripcion, MAX_LOG1);
+		boolean isAlfaNum = Validator.isAlfanumeric(cat_descripcion);
+		if (longCorrecta == true && isAlfaNum == true) {
+			this.cat_descripcion = cat_descripcion;
+		}
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -85,7 +101,6 @@ public class Categoria {
 		result = prime * result + id_categoria;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -111,12 +126,10 @@ public class Categoria {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Categoria [id_categoria=" + id_categoria + ", cat_nombre=" + cat_nombre + ", cat_descripcion="
 				+ cat_descripcion + "]";
 	}
-	
-	
+
 }

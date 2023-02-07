@@ -11,6 +11,16 @@ import es.rf.tienda.util.Validator;
  */
 public class Producto {
 
+	private static final double MIN = 0;
+	private static final int MIN_LONG = 5;
+	private static final int MIN_LONG1 = 0;
+	private static final int MIN_LONG2 = 1;
+	private static final int MAX_LONG = 10;
+	private static final int MAX_LONG1 = 100;
+	private static final int MAX_LONG2 = 101;
+	private static final int MAX_LONG3 = 2000;
+	private static final LocalDate FECHA_ACTUAL = LocalDate.now();
+
 	private String id_producto;
 	private String pro_descripcion;
 	private String pro_desLarga;
@@ -34,12 +44,22 @@ public class Producto {
 
 	}
 
+	/**
+	 * Comprobamos que los campos obligatorios no estén vacios
+	 * 
+	 * @return
+	 */
+	public boolean isValid() {
+		return !Validator.isVacio(id_producto) && !Validator.isVacio(pro_descripcion) && pro_precio > MIN
+				&& !Validator.isVacio(pro_uniVenta) && id_categoria > MIN && id_pais > MIN;
+	}
+
 	public String getId_producto() {
 		return id_producto;
 	}
 
 	public void setId_producto(String id_producto) {
-		boolean longitud = Validator.cumpleLongitud(id_producto, 5, 5);
+		boolean longitud = Validator.cumpleLongitud(id_producto, MIN_LONG, MIN_LONG);
 		boolean alfaNumeric = Validator.isAlfanumeric(id_producto);
 		if (longitud == true && alfaNumeric == true) {
 			this.id_producto = id_producto.toUpperCase();
@@ -51,7 +71,7 @@ public class Producto {
 	}
 
 	public void setPro_descripcion(String pro_descripcion) {
-		boolean longitud = Validator.cumpleLongitud(pro_descripcion, 5, 100);
+		boolean longitud = Validator.cumpleLongitud(pro_descripcion, MIN_LONG, MAX_LONG1);
 		boolean alfaNumeric = Validator.isAlfanumeric(pro_descripcion);
 		if (longitud == true && alfaNumeric == true) {
 			this.pro_descripcion = pro_descripcion;
@@ -63,7 +83,7 @@ public class Producto {
 	}
 
 	public void setPro_desLarga(String pro_desLarga) {
-		boolean longitud = Validator.cumpleLongitud(pro_desLarga, 5, 2000);
+		boolean longitud = Validator.cumpleLongitud(pro_desLarga, MIN_LONG, MAX_LONG3);
 		boolean alfaNumeric = Validator.isAlfanumeric(pro_desLarga);
 		if (longitud == true && alfaNumeric == true) {
 			this.pro_desLarga = pro_desLarga;
@@ -75,7 +95,7 @@ public class Producto {
 	}
 
 	public void setPro_precio(double pro_precio) {
-		boolean rango = Validator.cumpleRango(pro_precio, 0, 101);
+		boolean rango = Validator.cumpleRango(pro_precio, MIN_LONG1, MAX_LONG2);
 		if (rango == true) {
 			this.pro_precio = pro_precio;
 		}
@@ -94,7 +114,7 @@ public class Producto {
 	}
 
 	public void setPro_fecRepos(LocalDate pro_fecRepos) {
-		boolean fechaCorrecta = Validator.valDateMax(pro_fecRepos, LocalDate.now());
+		boolean fechaCorrecta = Validator.valDateMax(pro_fecRepos, FECHA_ACTUAL);
 		if (fechaCorrecta == true) {
 			this.pro_fecRepos = pro_fecRepos;
 		}
@@ -105,7 +125,7 @@ public class Producto {
 	}
 
 	public void setPro_fecActi(LocalDate pro_fecActi) {
-		boolean fechaCorrecta = Validator.valDateMax(pro_fecActi, LocalDate.now());
+		boolean fechaCorrecta = Validator.valDateMax(pro_fecActi, FECHA_ACTUAL);
 		if (fechaCorrecta == true) {
 			this.pro_fecActi = pro_fecActi;
 		}
@@ -117,7 +137,7 @@ public class Producto {
 	}
 
 	public void setPro_fecDesacti(LocalDate pro_fecDesacti) {
-		boolean fechaMax = Validator.valDateMax(pro_fecDesacti, LocalDate.now());
+		boolean fechaMax = Validator.valDateMax(pro_fecDesacti, FECHA_ACTUAL);
 		boolean fechaMaxAct = false;
 		if (pro_fecActi != null) {
 			fechaMaxAct = Validator.valDateMax(pro_fecDesacti, pro_fecActi);
@@ -134,7 +154,7 @@ public class Producto {
 	}
 
 	public void setPro_uniVenta(String pro_uniVenta) {
-		boolean longitud = Validator.cumpleLongitud(pro_uniVenta, 1, 10);
+		boolean longitud = Validator.cumpleLongitud(pro_uniVenta, MIN_LONG2, MAX_LONG);
 		boolean alfaNumeric = Validator.isAlfanumeric(pro_uniVenta);
 		if (longitud == true && alfaNumeric == true) {
 			this.pro_uniVenta = pro_uniVenta;
@@ -174,7 +194,7 @@ public class Producto {
 
 	public void setPro_usoRecomendado(String pro_usoRecomendado) {
 		boolean alfaNumeric = Validator.isAlfanumeric(pro_usoRecomendado);
-		boolean longitud = Validator.cumpleLongitud(pro_usoRecomendado, 0, 2000);
+		boolean longitud = Validator.cumpleLongitud(pro_usoRecomendado, MIN_LONG1, MAX_LONG3);
 		if (alfaNumeric == true && longitud == true) {
 			this.pro_usoRecomendado = pro_usoRecomendado;
 		}
@@ -218,7 +238,7 @@ public class Producto {
 
 	public void setPro_stat(char pro_stat) {
 		boolean alfaNumeric = Validator.isAlfanumeric(pro_stat + "");
-		boolean longitud = Validator.cumpleLongitud(pro_stat + "", 1, 1);
+		boolean longitud = Validator.cumpleLongitud(pro_stat + "", MIN_LONG2, MIN_LONG2);
 		if (alfaNumeric == true && longitud == true) {
 			if (pro_stat == 'A' || pro_stat == 'B') {
 				this.pro_stat = pro_stat;

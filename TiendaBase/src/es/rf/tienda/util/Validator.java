@@ -310,6 +310,22 @@ public class Validator {
 	}
 
 	/**
+	 * Comprobamos que la fecha que introduce sea igual
+	 * 
+	 * @param fecha
+	 * @param fechaActual
+	 * @return
+	 */
+	public static boolean valDateIgual(LocalDate fecha, LocalDate fechaActual) {
+		boolean fechaCorrecta = false;
+		if (fechaActual.getDayOfYear() == fecha.getDayOfYear() && fechaActual.getDayOfWeek() == fecha.getDayOfWeek()
+				&& fechaActual.getYear() == fecha.getYear()) {
+			fechaCorrecta = true;
+		}
+		return fechaCorrecta;
+	}
+
+	/**
 	 * esFechaValida Recibe una string con formato fecha dd/mm/aaaa y comprueba el
 	 * formato
 	 * 

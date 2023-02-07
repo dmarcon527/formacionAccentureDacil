@@ -117,7 +117,7 @@ class ValidatorTest {
 	void testIsAlfanumeric5() {
 		assertTrue(Validator.isAlfanumeric(ALFANUMERIC5));
 	}
-	
+
 	@Test
 	void testIsAlfanumeric_FALSE() {
 		assertFalse(Validator.isAlfanumeric(ALFANUMERIC_FALSE));
@@ -270,32 +270,42 @@ class ValidatorTest {
 
 	@Test
 	void testValDateMin() {
-		assertTrue(Validator.valDateMin(FECHA_INICIAL,FECHA_MIN));
+		assertTrue(Validator.valDateMin(FECHA_INICIAL, FECHA_MIN));
 	}
 
 	@Test
 	void testValDateMin1() {
-		assertFalse(Validator.valDateMin(FECHA_INICIAL,FECHA_MIN1));
+		assertFalse(Validator.valDateMin(FECHA_INICIAL, FECHA_MIN1));
 	}
-	
+
 	@Test
 	void testValDateMin2() {
-		assertTrue(Validator.valDateMin(FECHA_MIN1,FECHA_MIN1));
+		assertTrue(Validator.valDateMin(FECHA_MIN1, FECHA_MIN1));
+	}
+
+	@Test
+	void testvalDateIgual() {
+		assertTrue(Validator.valDateMin(FECHA_MIN1, FECHA_MIN1));
+	}
+
+	@Test
+	void testvalDateIgual1() {
+		assertFalse(Validator.valDateMin(FECHA_MIN, FECHA_MIN1));
 	}
 
 	@Test
 	void testValDateMax() {
-		assertTrue(Validator.valDateMax(FECHA_INICIAL,FECHA_MAX));
+		assertTrue(Validator.valDateMax(FECHA_INICIAL, FECHA_MAX));
 	}
 
 	@Test
 	void testValDateMax1() {
-		assertFalse(Validator.valDateMax(FECHA_INICIAL,FECHA_MAX1));
+		assertFalse(Validator.valDateMax(FECHA_INICIAL, FECHA_MAX1));
 	}
-	
+
 	@Test
 	void testValDateMax2() {
-		assertTrue(Validator.valDateMax(FECHA_MAX1,FECHA_MAX1));
+		assertTrue(Validator.valDateMax(FECHA_MAX1, FECHA_MAX1));
 	}
 
 	@Test
